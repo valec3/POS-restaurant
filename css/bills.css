@@ -1,7 +1,20 @@
+@font-face {
+  font-family: Gilroy;
+  src: url("../fuentes/Gilroy-Regular.ttf");
+}
+@font-face {
+  font-family: GilroyBold;
+  src: url("../fuentes/Gilroy-Bold.ttf");
+}
+@font-face {
+  font-family: GilroyLight;
+  src: url("../fuentes/Gilroy-Light.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Gilroy;
 }
 
 ul {
@@ -11,6 +24,12 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.mainApp {
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .menu {
@@ -39,7 +58,7 @@ a {
 
 .nav {
   padding-top: 40px;
-  margin-bottom: 160px;
+  margin-bottom: 10px;
 }
 
 .nav-subMenu {
@@ -106,16 +125,18 @@ a {
 }
 
 .userInfo-name {
-  font-weight: bold;
+  font-family: GilroyBold;
+  font-size: 20px;
 }
 
 .userInfo-subTitle {
-  font-weight: 200;
+  font-family: GilroyLight;
   color: #808080;
 }
 
 .userInfo-img-button {
-  width: 80%;
+  width: auto;
+  padding: 0 20px;
   height: 50px;
   margin: 20px 0;
   background-color: rgba(229, 225, 225, 0.4392156863);
@@ -123,4 +144,235 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+}
+
+.billContainer {
+  padding-top: 40px;
+  width: 600px;
+  height: 100vh;
+}
+
+.billContainer-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.billContainer-header {
+  width: 100%;
+  display: flex;
+  margin: 30px 0;
+  padding: 0 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.billContainer-title {
+  font-size: 36px;
+  font-family: GilroyBold;
+}
+
+.billContainer-svgContainer {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(154, 154, 156, 0.7176470588);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.billContainer-filter {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+}
+
+.billCards {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow: auto;
+  padding-top: 10px;
+}
+
+.billCards::-webkit-scrollbar {
+  width: 8px;
+  height: 30px;
+}
+
+.billCards::-webkit-scrollbar-thumb {
+  background-color: #ffca40;
+  border-radius: 10px;
+  width: 16px; /* Ancho del pulgarcito */
+  height: 16px; /* Altura del pulgarcito */
+}
+
+.bill-info {
+  width: 80%;
+  height: 90px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 1px 3px rgba(76, 76, 76, 0.3098039216);
+  display: grid;
+  grid-template-columns: 3fr 0.7fr;
+  grid-template-rows: repeat(2, 40px);
+  justify-self: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.bill-info:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: -1px 3px 3px 1px hsla(0, 0%, 17%, 0.31);
+}
+
+.bill-area {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin: 0 0 0 20px;
+}
+
+.bill-subarea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.billSearchContainer {
+  width: 600px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.billSearchBar {
+  display: flex;
+  gap: 30px;
+  border-radius: 10px;
+  background-color: rgba(192, 189, 189, 0.5607843137);
+  width: 400px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.billSearchBar input {
+  width: 300px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+}
+.billSearchBar input:focus {
+  border: 2px solid #ffca40;
+  outline: none;
+  background-color: #F8f8f7;
+  border-radius: 10px;
+}
+.billSearchBar svg {
+  padding-left: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.billDetails {
+  width: 600px;
+  background-color: #ededed;
+  height: 100vh;
+  right: 0;
+  transition: 0.5s ease-in-out;
+  z-index: 99;
+  padding-top: 30px;
+  box-shadow: -4px 3px 60px 3px hsla(0, 0%, 17%, 0.31);
+  opacity: 1;
+}
+
+.moveOut {
+  opacity: 0.3;
+  transform: translateX(600px);
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-bottom: 2px;
+}
+
+.active {
+  background-color: green;
+}
+
+.desiable {
+  background-color: rgb(170, 4, 4);
+}
+
+.detail {
+  background-color: #ffca40;
+  min-width: 200px;
+}
+
+.sm {
+  font-size: 12px;
+}
+
+.md {
+  font-family: Gilroy;
+  font-weight: 500;
+}
+
+.lg {
+  font-size: 24px;
+  font-family: GilroyBold;
+}
+
+.bill-data {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  gap: 20px;
+}
+
+.billDetails-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 40px);
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.bill-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainlist {
+  padding-right: 30px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listdectail {
+  width: 200px;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.bill-img {
+  width: 40px;
+}
+
+.buttonDectail {
+  position: absolute;
+  bottom: 100px;
+  right: 110px;
 }/*# sourceMappingURL=bills.css.map */
