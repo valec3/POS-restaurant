@@ -1,10 +1,10 @@
 # Proyecto practica de css y html
 ## Contribuidores
-- vivelamusicaalmaximo
-- 54albert54 
-- emanuel006
-- Javier02R
-- zknot
+- vivelamusicaalmaximo (page foods)
+- 54albert54  (page bills)
+- emanuel006 (page profile)
+- Javier02R (messages)
+- zknot ( settings )
 ## Descripcion
 Este proyecto es una practica de css y html, en el cual se implementa una pagina web de hamburguesas, en la cual se puede ver el menu, pedir hamburguesas, ver el perfil de usuario, ver las facturas, ver los mensajes, y configurar la cuenta de usuario.
 ## Guia de colaboracion al proyecto (pull request)
