@@ -281,7 +281,7 @@ a {
 }
 
 .billDetails {
-  width: 600px;
+  width: 800px;
   background-color: #ededed;
   height: 100vh;
   right: 0;
@@ -293,7 +293,7 @@ a {
 }
 
 .moveOut {
-  opacity: 0.3;
+  opacity: 0;
   transform: translateX(600px);
 }
 
@@ -372,7 +372,7 @@ a {
 }
 
 .buttonDectail {
-  position: absolute;
-  bottom: 100px;
-  right: 110px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
 }/*# sourceMappingURL=bills.css.map */

@@ -272,7 +272,7 @@ a{
   }
 }
 .billDetails{
-  width: 600px;
+  width: 800px;
   background-color: #ededed;
   height: 100vh;
   //position: absolute;
@@ -284,7 +284,7 @@ a{
   opacity: 1;
 }
 .moveOut{
-  opacity: 0.3;
+  opacity: 0;
   transform: translateX(600px);
 }
 
@@ -351,7 +351,10 @@ font-weight: 500;
   width: 40px;
 }
 .buttonDectail{
-  position: absolute;
-  bottom: 100px;
-  right: 110px;
+  //position: relative;
+  // bottom: -100px;
+  // right: 10px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
 }
