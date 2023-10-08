@@ -10,7 +10,7 @@
     <div class="container">
         <aside class="aside">
             <header>
-                <img src="" alt="l">
+                <img class="logo" src="./img/shopping-bag.svg" alt="l">
                 <h1>
                     Smart<span class="aside-title-mod">POS</span>
                 </h1>
@@ -21,29 +21,29 @@
                         <img src="./img/dashboard-icon.svg" alt="icono">
                         <p>Dashboard</p>
                     </a>
-                    <a href="#" class="navbar-item">
-                        <img src="" alt="icono">
+                    <a href="foods.html" class="navbar-item">
+                        <img src="./img/hamburger-icon.svg" alt="icono">
                         <p>Food & Drinks</p>
                     </a>
-                    <a href="#" class="navbar-item">
+                    <a href="messages.html" class="navbar-item">
                         <img src="./img/messages.svg" alt="icono">
                         <p>Messages</p>
                     </a>
-                    <a href="#" class="navbar-item">
-                        <img src="" alt="icono">
+                    <a href="bills.html" class="navbar-item">
+                        <img src="./img/bill-icon.svg" alt="icono">
                         <p>Bills</p>
                     </a>
-                    <a href="#" class="navbar-item">
-                        <img src="" alt="icono">
+                    <a href="settings.html" class="navbar-item">
+                        <img src="./img/settings-icon.svg" alt="icono">
                         <p>Settings</p>
                     </a>
                     <p>Other</p>
                     <a href="#" class="navbar-item">
-                        <img src="" alt="">
+                        <img src="./img/notification-message.svg" alt="">
                         <p>Notifications</p>
                     </a>
                     <a href="#" class="navbar-item">
-                        <img src="" alt="">
+                        <img src="./img/user-support.svg" alt="">
                         <p>Support</p>
                     </a>
                 </nav>
@@ -71,31 +71,62 @@
                     </div>
                 </header>
                 <div class="dashboard-content">
-                    <div>
+                    <div class="dashboard-slider">
                         <h2>Dashboard</h2>
-                        <div>
-                            Yesterday Today ....
+                        <div class="slides">
+                            <p>Yesterday</p>
+                            <p class="active">Today</p>
+                            <p>Week</p>
+                            <p>Month</p>
                         </div>
                     </div>
                     <div class="dashboard-stats">
-                        <div>
-                            lines
+                        <div class="stat-item stat-item-section">
+                            <h3>Daily sales</h3>
+                            <div class="chart" id="areaChart"></div>
                         </div>
-                        <div>
-                            pastel
+                        <div class="donut stat-item-section">
+                            <div class="stat-item chart">
+                                <div>
+                                    <h4>Total income</h4>
+                                    <select name="" id="">
+                                        <option value="">Today</option>
+                                        <option value="">Yesterday</option>
+                                        <option value="">Last week</option>
+                                        <option value="">Last month</option>
+                                    </select>
+                                </div>
+                                <div id="donutChart"></div>
+                            </div>
+                            <div class="stats-customers stat-item">
+                                <h3>Customers</h3>
+                                <p>-2.33%</p>
+                                <h4>21,375</h4>
+                                <span class="progress-bar"></span>
+                            </div>
+                            <div class="stats-customers stat-item">
+                                <h3>Customers</h3>
+                                <p>+32.40%</p>
+                                <h4>256</h4>
+                                <span class="progress-bar"></span>
+                            </div>
                         </div>
-                        <div>
+                        <div class="stat-item stat-item-section">
                             trending
                         </div>
-                        <div>
+                        <div class="stat-item stat-item-section">
                             employees
                         </div>
                     </div>
                 </div>
-
             </section>
         </main>
     </div>
 
+
+    <!--   SCRIPTS  -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <script src="./js/dashboard.js"></script>
 </body>
 </html>
