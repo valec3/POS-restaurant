@@ -62,12 +62,22 @@
         </aside>
         <main class="main-content">
             <section class="dashboard">
-                <header>
-                    <div>
-                        <a href=""><-</a>
+                <header class="dashboard-header">
+                    <div class="dashboard-header-txt">
+                        <a class="arrow-left" href="index.html">
+                            <img src="./img/arrow-narrow.svg" alt="">
+                        </a>
+                        <p>Dashboard</p>
+                        <img class="less-icon" src="./img/less-icon.svg" alt="menor icon">
+                        <p>Sales statistics</p>
                     </div>
-                    <div>
-                        icon icon
+                    <div class="dashboard-search">
+                        <img src="./img/notification-icon.svg" alt="">
+                        <img src="./img/clock-icon.svg" alt="">
+                        <div class="dashboard-search-input">
+                            <img src="./img/search-icon.svg" alt="">
+                            <input type="text" placeholder="Search...">
+                        </div>
                     </div>
                 </header>
                 <div class="dashboard-content">
@@ -111,11 +121,38 @@
                                 <span class="progress-bar"></span>
                             </div>
                         </div>
-                        <div class="stat-item stat-item-section">
-                            trending
+                        <div class="stat-item stat-item-section trending_dishes" id="trending_dishes">
+                            <div class="trending_dishes-header">
+                                <h2>Trending dishes</h2>
+                                <select name="" id="">
+                                    <option value="">Today</option>
+                                    <option value="">Yesterday</option>
+                                    <option value="">Last week</option>
+                                    <option value="">Last month</option>
+                                </select>
+                            </div>
+                            <div class="trending-dishes-titles">
+                                <h3>Dishes</h3>
+                                <h3>Orders</h3>
+                            </div>
+                            <div  id="trending-dishes-list">
+
+                            </div>
                         </div>
-                        <div class="stat-item stat-item-section">
-                            employees
+                        <div class="stat-item stat-item-section best-employees" id="best-employees">
+                            <div class="best-employees__header">
+                                <h2>Best employees</h2>
+                                <select name="" id="">
+                                    <option value="">Today</option>
+                                    <option value="">Yesterday</option>
+                                    <option value="">Last week</option>
+                                    <option value="">Last month</option>
+                                </select>
+                            </div>
+                            <div class="best-employees__titles">
+                                <h3>Employee</h3>
+                                <h3>Earnings</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
