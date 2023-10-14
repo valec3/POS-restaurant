@@ -8,7 +8,8 @@ import notificationIcon from './notification-icon.svg';
 import shoppingIcon from './shopping-bag.svg';
 import messagesIcon from './messages.svg';
 import supportIcon from './user-support.svg';
-
+import GoogleLogo from './googlelogo.svg';
+import FacebookLogo from './facebookLogo.svg';
 
 export{
     billIcon,
@@ -20,5 +21,7 @@ export{
     notificationIcon,
     shoppingIcon,
     messagesIcon,
-    supportIcon
+    supportIcon,
+    GoogleLogo,
+    FacebookLogo
 }
