@@ -5,9 +5,11 @@ import './index.css'
 import Loging from '../Forms/Login'
 import Sign from '../Forms/sign'
 import {GoogleLogo ,FacebookLogo} from "../../assets/icons"
+import useAuth from '../../hooks/useAuth'
 const Home = () =>{
   let [showImage, setShowImage] =useState(0)
-  let [hasCount, setHasCount] =useState(true)
+  
+  const { auth ,hasAccount, setHasAccount }= useAuth()
   const imagesLink = [
     'https://mecaluxes.cdnwm.com/blog/img/inventario-fantasma-stock.1.0.jpg?imwidth=2048',
   'https://www.campustraining.es/wp-content/uploads/2022/08/CAMPUSBLOG-ventas-0822-715x495.jpg.webp',
@@ -16,7 +18,8 @@ const Home = () =>{
 
 
 useEffect(()=>{
-    setInterval(()=>{
+    
+  setInterval(()=>{
       if (showImage < imagesLink.length -1){
         setShowImage(showImage +=1)
         return
@@ -53,12 +56,13 @@ useEffect(()=>{
   <article className='mainHome-asideRigth'>
    <div className='mainHome-containerRigth'>
     <p className='mainHome-title mainHome-title--XL' >Welvome Back!</p>
-    <p className='mainHome-subtitle md' >Esto esta my pequeño</p>
+    <p className='mainHome-subtitle md' >Admin -juan -ana - 123456</p>
+    {auth && <p>estas dentro</p>}
   <section className='containerRigth-formArea' >
 
-{hasCount?<Loging/>:<Sign/>}
+{hasAccount?<Loging/>:<Sign/>}
 
-<div onClick={()=>setHasCount(!hasCount)} className='inputButton inputButton-sign'> <p className='mainHome-title'>Sign in</p></div>
+{hasAccount&&  <div onClick={()=>setHasAccount(false)} className='inputButton inputButton-sign'> <p className='mainHome-title'>Sign in</p></div>}
         
   </section>
   <section className='mainHome-footerRigth'>
@@ -74,7 +78,7 @@ useEffect(()=>{
       </div>
     </div>
     <p className='footerRigth-title footerRigth-title--blue'>Forgeret password</p>
-    <p className='footerRigth-title '>mas texto que se hace dificil de leer</p>
+    <p className='footerRigth-title '>© 2020 SmartPOS App</p>
   </section>
   
    </div>

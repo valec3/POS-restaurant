@@ -1,0 +1,225 @@
+@font-face {
+  font-family: Gilroy;
+  src: url("../../assets/fuentes/Gilroy-Regular.ttf");
+}
+@font-face {
+  font-family: GilroyBold;
+  src: url("../../assets/fuentes/Gilroy-Bold.ttf");
+}
+@font-face {
+  font-family: GilroyLight;
+  src: url("../../assets/fuentes/Gilroy-Light.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.aside-profile-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  padding-left: 40px;
+  gap: 40px;
+}
+
+.sh {
+  height: 200px;
+}
+
+.profileCard {
+  width: 400px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  align-items: center;
+  position: relative;
+  box-shadow: 2px 10px 20px 1px rgba(108, 108, 108, 0.1882352941);
+}
+
+.dt {
+  width: 700px;
+  align-items: normal;
+  padding-left: 40px;
+  padding-top: 60px;
+}
+
+.profileImgContainer {
+  padding-top: 40px;
+}
+
+.profileImg {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+}
+
+.profileImgEdit {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffca40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 230px;
+  right: 80px;
+  animation: 0.6s ease-in-out;
+}
+.profileImgEdit img {
+  width: 40px;
+}
+
+.profileImgEdit:hover {
+  cursor: pointer;
+  background-color: #ff7a10;
+}
+
+.profile-title-lg {
+  font-size: 26px;
+  font-family: GilroyBold;
+}
+
+.profile-title {
+  color: #000;
+  font-size: 26px;
+  font-family: GilroyBold;
+}
+
+.profile-subtitle {
+  color: #000;
+  font-size: 20px;
+  font-family: Gilroy;
+}
+
+.profile-info {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-rank {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  border-bottom: 1px solid #808080;
+}
+
+.profile-settings {
+  display: flex;
+  width: 400px;
+  height: 40px;
+  position: relative;
+  margin: 20px 0;
+}
+
+.profile-settings:hover {
+  cursor: pointer;
+}
+
+.sm {
+  width: 40px;
+  height: 40px;
+  margin: 0 30px;
+}
+
+.profile-bar {
+  width: 5px;
+  height: 100%;
+  background-color: #ffca40;
+  position: absolute;
+  border-radius: 20px;
+  right: 3px;
+}
+
+.red {
+  color: #c8161d;
+}
+
+.ProfileDectailsecction {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.ProfileDectailpart {
+  width: 260px;
+  height: 40px;
+  margin-top: 10px;
+  display: flex;
+  border-radius: 10px;
+  background-color: #c6c4c4;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.profileCard-otherLinksContainer {
+  margin-top: 200px;
+}
+
+.password {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.passwordIcon {
+  width: 30px;
+}
+
+.passwordIcon:hover {
+  cursor: pointer;
+}
+
+.password-change {
+  display: flex;
+  width: 260px;
+  gap: 10px;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.password-change:hover {
+  cursor: pointer;
+  color: #c8161d;
+}
+
+.profileCard-otherLinks {
+  display: flex;
+  justify-content: flex-start;
+  margin: 30px 0 120px -30px;
+}
+
+.newPassword-secction {
+  position: absolute;
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  top: 320px;
+}
+
+.newimg {
+  position: absolute;
+  top: 90px;
+  flex-direction: row;
+}
+
+.imgInput {
+  width: 600px;
+}
+
+.botton {
+  margin-top: 180px;
+}/*# sourceMappingURL=index.css.map */

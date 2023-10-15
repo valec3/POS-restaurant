@@ -10,6 +10,13 @@ import messagesIcon from './messages.svg';
 import supportIcon from './user-support.svg';
 import GoogleLogo from './googlelogo.svg';
 import FacebookLogo from './facebookLogo.svg';
+import pen from './pen.svg';
+import door from './door.svg';
+import user from './user.svg';
+import lock from './lock.svg';
+import trash from './trash.svg';
+import eye from './eye.svg';
+import key from './key.svg';
 
 export{
     billIcon,
@@ -23,5 +30,12 @@ export{
     messagesIcon,
     supportIcon,
     GoogleLogo,
-    FacebookLogo
+    FacebookLogo,
+    pen,
+    door,
+    user,
+    lock,
+    trash,
+    eye,
+    key
 }
