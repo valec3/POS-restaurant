@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 function Loging()  {
   const navigate = useNavigate()
   const [infoAuth, setInfoAuth] = useState({});
-  const { loging ,auth ,hasAccount, setHasAccount }= useAuth()
+  const { loging }= useAuth()
 
   const verificateUser = (logigUser)=>{
      USER_DATA.map(user =>{ 
@@ -51,7 +51,7 @@ function Loging()  {
             className='inputForm'
               type="text"
               name="username"
-              placeholder='Username or Email'
+              placeholder='Username'
               onChange={handleInputChange}
               required
             />

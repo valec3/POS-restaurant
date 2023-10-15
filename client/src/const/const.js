@@ -1,7 +1,7 @@
 export const USER_DATA =[ {
   id:"1",
   username:'admin',
-  customname:"lindo admin",
+  customname:"Numero '1' admin",
   email:"admin@fake.com",
   image:'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
   password:'123456',
@@ -39,7 +39,7 @@ export const createNewUser= (newInfo)=>{
 };
 export const editOneUser = (id ,newData)=>{
   const userIndex = USER_DATA.findIndex(user => user.id == id)
-  const userToEdit =USER_DATA.splice(1,1) 
+  const userToEdit =USER_DATA.splice(userIndex,1) 
   //const filterUser = USER_DATA.filter(user => user.id != id)
   const newDataAct = {...userToEdit[0],...newData}
   USER_DATA.push(newDataAct)

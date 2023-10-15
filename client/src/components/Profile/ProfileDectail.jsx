@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 const ProfileDectail = ({chagePicture , setChagePicture}) =>{
   const navigate = useNavigate()
-  const { auth ,loging}= useAuth()
+  const { auth ,loging ,logOut}= useAuth()
   const [showPassword , setShowPassword] = useState(false)
  
   const [showPasswordArea , setShowPasswordArea] = useState(false)
@@ -25,12 +25,17 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
     setChagePicture(false)
     if( dataUser.password ===dataUser.passwordConfirm){
       USER_DATA.map(user =>{
+      
+       if(user.id ===auth.id){
+        
+        
         if (dataUser.customname.toLowerCase() !=user.customname.toLowerCase()){
          
-          editOneUser(auth.id,dataUser)
+          const referfUser = editOneUser(auth.id,dataUser)
           USER_DATA.map(newUser=>{
             if(newUser.id ===auth.id ){
-            console.log('auth.id',auth.id);
+            
+      
             loging(newUser)
             }
           })
@@ -46,7 +51,12 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
           // }
         }else{
           console.log('ese nombre ya esta siendo utilizado');
+          console.log('dataUser.customname',dataUser.customname);
+          console.log('user.customname',user.customname);
+          
+          
         }
+       }
       })
       
       
@@ -79,6 +89,10 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
       setShowPassword(false)
     }, 3000);
   }
+  const passwordSide = ()=>{
+    showPasswordArea? setShowPassword(false):setShowPassword(true);
+    showPasswordArea? setShowPasswordArea(false):setShowPasswordArea(true)
+  }
 
   return (
 <section className="profileCard dt">
@@ -109,7 +123,7 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
     </div>
     
       
-     <div className="password-change" onClick={()=>(setShowPassword(!showPassword),setShowPasswordArea(!showPasswordArea))}>
+     <div className="password-change" onClick={()=>passwordSide()}>
       <img className="passwordIcon" src={key} alt="" />
       <p className="userInfo-name" > Chantge Password</p>
       </div> 

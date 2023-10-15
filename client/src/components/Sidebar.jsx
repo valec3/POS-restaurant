@@ -57,12 +57,12 @@ const Sidebar = () => {
     }
     return (
         <aside className="aside">
-            <header>
-                <img className="logo" src={shoppingIcon} alt="l"/>
-                <h1>
-                    Smart<span className="aside-title-mod">POS</span>
-                </h1>
-            </header>
+                <header className='mainHome-baner'>
+                    <img className="mainHome-logo" src={shoppingIcon} alt="l"/>
+                    <p className='mainHome-title'>
+                        Smart<span className="mainHome-title mainHome-title--red">POS</span>
+                    </p>
+                </header>
             <div className="nav-container">
                 <nav className="navbar">
                     {

@@ -23,15 +23,15 @@
 }
 
 .mainHome-baner {
-  height: 40px;
+  height: 2em;
   display: flex;
-  gap: 20px;
+  gap: 1em;
 }
 
 .mainHome-asideLeft {
   width: 100%;
   background-color: #d5d5d5;
-  padding: 40px;
+  padding: 2.5em;
 }
 
 .mainHome-leftCoontent {
@@ -43,7 +43,7 @@
 
 .mainHome-title {
   font-family: GilroyBold;
-  font-size: 25px;
+  font-size: 1.2em;
   color: #000;
 }
 
@@ -52,21 +52,21 @@
 }
 
 .mainHome-title--XL {
-  font-size: 36px;
+  font-size: 2.2em;
 }
 
 .mainHome-title--SM {
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .footerRigth-title {
-  font-size: 16px;
+  font-size: 1em;
   font-family: GilroyLight;
 }
 
 .footerRigth-title--blue {
   color: blue;
-  margin: 30px;
+  margin: 17em 0 1em 0;
 }
 
 .mainHome-subtitle {
@@ -74,33 +74,33 @@
 }
 
 .mainHome-logo {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 10px;
+  width: 1.5em;
+  height: 1.5em;
+  margin-bottom: .2em;
 }
 
 .mainHome-images {
   width: 80%;
-  min-width: 430px;
-  height: 600px;
+  min-width: 26.9em;
+  height: 37.5em;
   margin: 0 auto;
-  border-radius: 20px;
-  margin: 40px 0;
+  border-radius: 1.2em;
+  margin: 2.5em 0;
   background-size: cover;
   background-position: center;
 }
 
 .dootImage-container {
   display: flex;
-  gap: 20px;
+  gap: 1.2em;
   position: relative;
 }
 
 .dootImage {
-  width: 10px;
-  height: 10px;
+  width: .8em;
+  height: .8em;
   background-color: #94949c;
-  border-radius: 20px;
+  border-radius: 1.2em;
 }
 
 @keyframes moveDoot {
@@ -118,50 +118,50 @@
   }
 }
 .dootImage-active {
-  width: 20px;
-  height: 14px;
+  width: 1.2em;
+  height: .8em;
   background-color: #ffca40;
   animation: moveDoot 5s infinite;
   position: absolute;
   top: -1px;
-  border-radius: 20px;
+  border-radius: 1.2em;
   transition: 0.4s ease-in-out;
 }
 
 .mainHome-asideRigth {
   display: flex;
   flex-direction: column;
-  padding: 120px 100px;
+  padding: 7.7em 6.2em;
 }
 
 .mainHome-containerRigth {
-  width: 600px;
-  height: 600px;
+  width: 37.5em;
+  height: 37.5em;
 }
 
 .containerRigth-formArea {
-  padding-top: 40px;
+  padding-top: 2.5em;
   display: flex;
-  height: 350px;
+  height: 22em;
   flex-direction: column;
 }
 
 .otherLinksContainer {
   display: flex;
   justify-content: space-around;
-  margin: 10px 0;
+  margin: .8em 0;
 }
 
 .otherLinks {
   border: 1px solid #b3b3b3;
-  gap: 10px;
-  padding: 10px 20px;
+  gap: .8em;
+  padding: .8em 1.2em;
   align-items: center;
-  border-radius: 10px;
-  margin: 0 30px;
+  border-radius: .8em;
+  margin: 0 2.2em;
 }
 .otherLinks img {
-  width: 36px;
+  width: 2.2em;
 }
 
 .otherLinks {
@@ -169,7 +169,7 @@
 }
 
 .mainHome-footerRigth {
-  margin-top: 80px;
+  margin-top: 5em;
   display: flex;
   flex-direction: column;
   align-items: center;

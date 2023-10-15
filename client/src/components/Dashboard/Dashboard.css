@@ -110,6 +110,7 @@ a{
 }
 .nav-container .navbar-item:hover{
     background: var(--color-primary);
+    cursor: pointer;
 }
 .navbar a{
     color: var(--black);
