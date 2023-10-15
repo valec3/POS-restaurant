@@ -17,17 +17,12 @@ const cadrsTemplate = (i) => `
   <span class="status active"></span>
   <p class="userInfo-subTitle sm">Active</p>  
 </div>
-
 </div>
 <p class="userInfo-subTitle lg">$43</p>
 <div class="bill-area">
-
-
-
 <p class="userInfo-subTitle ">Table 18 - 2 guess</p>  
 </div>
 <p class="userInfo-subTitle " >14:30</p>
-
 `;
 
 for (let i = 0; i<40; i++ ){

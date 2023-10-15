@@ -8,9 +8,12 @@ import {billIcon,
     messagesIcon,
     supportIcon
 } from "../assets/icons/"
+import useAuth from './../hooks/useAuth.jsx'
 
 const Sidebar = () => {
+    const { loging ,auth ,hasAccount, setHasAccount }= useAuth()
     const navigate = useNavigate()
+    const imgEmpy  ='https://surgassociates.com/wp-content/uploads/610-6104451_image-placeholder-png-user-profile-placeholder-image-png-286x300.jpg'
     const optionsAside = [
         {
             name: "Dashboard",
@@ -48,17 +51,18 @@ const Sidebar = () => {
             link: "/dashboard/support"
         }
     ]
+    
     const handleClickNavigate = (link) => {
         navigate(link)
     }
     return (
         <aside className="aside">
-            <header>
-                <img className="logo" src={shoppingIcon} alt="l"/>
-                <h1>
-                    Smart<span className="aside-title-mod">POS</span>
-                </h1>
-            </header>
+                <header className='mainHome-baner'>
+                    <img className="mainHome-logo" src={shoppingIcon} alt="l"/>
+                    <p className='mainHome-title'>
+                        Smart<span className="mainHome-title mainHome-title--red">POS</span>
+                    </p>
+                </header>
             <div className="nav-container">
                 <nav className="navbar">
                     {
@@ -75,15 +79,19 @@ const Sidebar = () => {
                         })
                     }
                 </nav>
-                <div className="aside-profile">
+                <div className="aside-profile" >
                     <div>
                         <picture className="aside-profile-img">
-                            <img src="./img/perfil-woman.jpg" alt="foto de perfil"/>
+                            <img src={auth.image? auth.image:imgEmpy} alt="foto de perfil"/>
                         </picture>
-                        <h3>Theresa Webp</h3>
-                        <p>Waiter . 4h 56m</p>
+                        <div className="aside-profile-details">
+                        <p>id# {auth.id}</p>
+                        <h3>{auth.customname}</h3>
+                        <p> rol:{auth.role}</p>
+                        </div>
+
                     </div>
-                    <a href="#" className="btn">Open profile</a>
+                    <p onClick={()=>navigate('/dashboard/profile')} className="btn">Open profile</p>
                 </div>
             </div>
             <p className="copy">&copy; 2020 SmartPOS App</p>

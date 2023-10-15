@@ -1,0 +1,176 @@
+@font-face {
+  font-family: Gilroy;
+  src: url("../../assets/fuentes/Gilroy-Regular.ttf");
+}
+@font-face {
+  font-family: GilroyBold;
+  src: url("../../assets/fuentes/Gilroy-Bold.ttf");
+}
+@font-face {
+  font-family: GilroyLight;
+  src: url("../../assets/fuentes/Gilroy-Light.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mainHome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+}
+
+.mainHome-baner {
+  height: 2em;
+  display: flex;
+  gap: 1em;
+}
+
+.mainHome-asideLeft {
+  width: 100%;
+  background-color: #d5d5d5;
+  padding: 2.5em;
+}
+
+.mainHome-leftCoontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mainHome-title {
+  font-family: GilroyBold;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.mainHome-title--red {
+  color: #c8161d;
+}
+
+.mainHome-title--XL {
+  font-size: 2.2em;
+}
+
+.mainHome-title--SM {
+  font-size: 1em;
+}
+
+.footerRigth-title {
+  font-size: 1em;
+  font-family: GilroyLight;
+}
+
+.footerRigth-title--blue {
+  color: blue;
+  margin: 17em 0 1em 0;
+}
+
+.mainHome-subtitle {
+  font-family: Gilroy;
+}
+
+.mainHome-logo {
+  width: 1.5em;
+  height: 1.5em;
+  margin-bottom: .2em;
+}
+
+.mainHome-images {
+  width: 80%;
+  min-width: 26.9em;
+  height: 37.5em;
+  margin: 0 auto;
+  border-radius: 1.2em;
+  margin: 2.5em 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.dootImage-container {
+  display: flex;
+  gap: 1.2em;
+  position: relative;
+}
+
+.dootImage {
+  width: .8em;
+  height: .8em;
+  background-color: #94949c;
+  border-radius: 1.2em;
+}
+
+@keyframes moveDoot {
+  0% {
+    transform: translateX(-2px);
+  }
+  30% {
+    transform: translateX(28px);
+  }
+  60% {
+    transform: translateX(58px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
+}
+.dootImage-active {
+  width: 1.2em;
+  height: .8em;
+  background-color: #ffca40;
+  animation: moveDoot 5s infinite;
+  position: absolute;
+  top: -1px;
+  border-radius: 1.2em;
+  transition: 0.4s ease-in-out;
+}
+
+.mainHome-asideRigth {
+  display: flex;
+  flex-direction: column;
+  padding: 7.7em 6.2em;
+}
+
+.mainHome-containerRigth {
+  width: 37.5em;
+  height: 37.5em;
+}
+
+.containerRigth-formArea {
+  padding-top: 2.5em;
+  display: flex;
+  height: 22em;
+  flex-direction: column;
+}
+
+.otherLinksContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: .8em 0;
+}
+
+.otherLinks {
+  border: 1px solid #b3b3b3;
+  gap: .8em;
+  padding: .8em 1.2em;
+  align-items: center;
+  border-radius: .8em;
+  margin: 0 2.2em;
+}
+.otherLinks img {
+  width: 2.2em;
+}
+
+.otherLinks {
+  cursor: pointer;
+}
+
+.mainHome-footerRigth {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=index.css.map */
