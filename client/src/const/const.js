@@ -39,11 +39,11 @@ export const createNewUser= (newInfo)=>{
 };
 export const editOneUser = (id ,newData)=>{
   const userIndex = USER_DATA.findIndex(user => user.id == id)
-  const userToEdit =USER_DATA.splice(userIndex,1) 
-  //const filterUser = USER_DATA.filter(user => user.id != id)
-  const newDataAct = {...userToEdit[0],...newData}
-  USER_DATA.push(newDataAct)
-  return newDataAct
-  
+  const updatedUser = {
+    ...USER_DATA[userIndex],
+    ...newData,
+  };
 
+  USER_DATA[userIndex] = updatedUser;
+  return updatedUser;
 }

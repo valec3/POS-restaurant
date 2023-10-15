@@ -1,29 +1,29 @@
-import React, { Component, useState } from 'react';
+import { useState } from 'react';
 
 import './style.css'
 import useAuth from '../../hooks/useAuth';
 import { USER_DATA } from '../../const/const';
 import { useNavigate } from "react-router-dom"
 
-
 function Loging()  {
   const navigate = useNavigate()
   const [infoAuth, setInfoAuth] = useState({});
   const { loging }= useAuth()
 
-  const verificateUser = (logigUser)=>{
-     USER_DATA.map(user =>{ 
-      if (user.username.toLowerCase() ==logigUser.username.toLowerCase()){
-        if (user.password ==logigUser.password){
-            loging(user)
-          navigate('/dashboard');
-          
-        }else{
-          console.log('password no aparece')
-        }
-      }else{
-        console.log('username no aparece')
-      }})
+  const verificateUser = (loginUser)=>{
+    const user = USER_DATA.find((user) => user.username.toLowerCase() === loginUser.username.toLowerCase());
+
+    if (!user) {
+      console.log('Nombre de usuario no encontrado');
+      return;
+    }
+  
+    if (user.password === loginUser.password) {
+      loging(user);
+      navigate('/dashboard');
+    } else {
+      console.log('Contraseña incorrecta');
+    }
     
   }
   

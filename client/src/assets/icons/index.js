@@ -17,6 +17,8 @@ import lock from './lock.svg';
 import trash from './trash.svg';
 import eye from './eye.svg';
 import key from './key.svg';
+import lessIcon from './less-icon.svg';
+import arrowLeftIcon from './arrow-left.svg';
 
 export{
     billIcon,
@@ -37,5 +39,7 @@ export{
     lock,
     trash,
     eye,
-    key
+    key,
+    lessIcon,
+    arrowLeftIcon
 }
