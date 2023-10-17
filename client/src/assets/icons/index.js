@@ -8,7 +8,7 @@ import notificationIcon from './notification-icon.svg';
 import shoppingIcon from './shopping-bag.svg';
 import messagesIcon from './messages.svg';
 import supportIcon from './user-support.svg';
-import GoogleLogo from './googlelogo.svg';
+import GoogleLogo from './googleLogo.svg';
 import FacebookLogo from './facebookLogo.svg';
 import pen from './pen.svg';
 import door from './door.svg';
