@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react'
 import { shoppingIcon } from '../../assets/icons'
 import './index.css'
-import Loging from '../Forms/Login'
-import Sign from '../Forms/sign'
+import Loging from '../Forms/login'
+import Sign from '../Forms/Sign'
 import {GoogleLogo ,FacebookLogo} from "../../assets/icons"
 import useAuth from '../../hooks/useAuth'
 const Home = () =>{
