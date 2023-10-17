@@ -1,7 +1,7 @@
 import DashboardBestEmployees from './DashboardBestEmployees'
 import DashboardDonutChart from './DashboardDonutChart'
 import DashboardHeader from './DashboardHeader'
-import './dashboard.css'
+import './Dashboard.css'
 
 const Dashboard = () => {
     

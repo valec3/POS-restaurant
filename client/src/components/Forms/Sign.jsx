@@ -1,8 +1,9 @@
-import React, { Component, useState } from 'react';
+import { useState } from 'react';
 import './style.css'
 import useAuth from '../../hooks/useAuth';
 import { USER_DATA, createNewUser } from '../../const/const';
 import { useNavigate } from "react-router-dom"
+
 function Sign()  {
   const { loging ,auth ,hasAccount, setHasAccount }= useAuth();
   const [infoAuth, setInfoAuth] = useState({});
