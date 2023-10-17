@@ -1,10 +1,9 @@
 
 import { useEffect, useState } from 'react'
-import { shoppingIcon } from '../../assets/icons'
 import './index.css'
-import Loging from '../Forms/login'
+import Loging from '../Forms/Login'
 import Sign from '../Forms/Sign'
-import {GoogleLogo ,FacebookLogo} from "../../assets/icons"
+import {GoogleLogo ,FacebookLogo,shoppingIcon} from "../../assets/icons"
 import useAuth from '../../hooks/useAuth'
 const Home = () =>{
   let [showImage, setShowImage] =useState(0)
@@ -81,7 +80,7 @@ useEffect(()=>{
     <p className='footerRigth-title '>© 2020 SmartPOS App</p>
   </section>
   
-   </div>
+  </div>
  
   </article>
 
