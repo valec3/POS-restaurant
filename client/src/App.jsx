@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import FoodsContainer from './components/Foods/FoodsContainer'
 import CategoriesFoods from './components/Foods/Categories/CategoriesFoods'
 import BurgersContainer from './components/Foods/Burgers/BurgersContainer'
+import PizzasContainer from './components/Foods/Pizzas/PizzasContainer'
 
 function App() {
     const { auth }= useAuth()
@@ -31,7 +32,7 @@ function App() {
                         <Route path="/dashboard/food-drinks" element={<FoodsContainer/>}>
                             <Route index={true} element={<CategoriesFoods/>} />
                             <Route path="/dashboard/food-drinks/burgers" element={<BurgersContainer/>} />
-                            <Route path='/dashboard/food-drinks/pizzas' element={<h2>Pizzas</h2>} />
+                            <Route path='/dashboard/food-drinks/pizzas' element={<PizzasContainer/>} />
                             <Route path='/dashboard/food-drinks/drinks' element={<h2>Drinks</h2>} />
                             <Route path='/dashboard/food-drinks/wok' element={<h2>Wok</h2>} />
                             <Route path='/dashboard/food-drinks/pasta' element={<h2>Pasta</h2>} />

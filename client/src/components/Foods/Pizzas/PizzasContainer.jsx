@@ -1,8 +1,8 @@
-import { dataBurgerFoods } from "../mockdata" 
-import defectImgFood from "../../../assets/img/dishes/default-img-food.jpg"
 import FoodCard from "../FoodCard"
+import {dataPizzaFoods} from "../mockdata.js"
+import defectImgFood from "../../../assets/img/dishes/default-img-pizza.png"
 
-const BurgersContainer = () => {
+const PizzasContainer = () => {
     return (
         <section className="md:px-10">
             <header>
@@ -10,7 +10,7 @@ const BurgersContainer = () => {
             </header>
             <div className="grid md:grid-cols-4 gap-8">
                 {
-                    dataBurgerFoods.map((food) => (
+                    dataPizzaFoods.map((food) => (
                         <FoodCard key={food.id} food={food} defectImgFood={defectImgFood}  />
                     ))
                 }
@@ -19,4 +19,4 @@ const BurgersContainer = () => {
     )
 }
 
-export default BurgersContainer
+export default PizzasContainer
