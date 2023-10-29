@@ -1,5 +1,5 @@
 import useAuth from "../../hooks/useAuth"
-import "./index.css"
+import "./index.scss"
 import { pen , door,  user,  lock ,trash} from '../../assets/icons'
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"

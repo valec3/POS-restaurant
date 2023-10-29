@@ -4,7 +4,7 @@ import { useState } from "react"
 import { USER_DATA, editOneUser } from "../../const/const"
 import { useNavigate } from "react-router-dom"
 
-const ProfileDectail = ({chagePicture , setChagePicture}) =>{
+const ProfileDectail = ({changePicture, setChangePicture}) =>{
   const navigate = useNavigate()
   const { auth ,loging ,logOut}= useAuth()
   const [showPassword , setShowPassword] = useState(false)
@@ -22,7 +22,7 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
   };
   const verificateUser=(dataUser)=>{
     setShowPasswordArea(false)
-    setChagePicture(false)
+    setChangePicture(false)
     if( dataUser.password ===dataUser.passwordConfirm){
       USER_DATA.map(user =>{
       
@@ -39,16 +39,6 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
             loging(newUser)
             }
           })
-          //loging
-            
-          // if(validarCorreoElectronico(logigUser.email)){
-          //   createNewUser(logigUser);
-          //   loging(logigUser);
-          //   navigate('/dashboard');
-          // }else{
-          //   console.log('el correo no es valido');
-            
-          // }
         }else{
           console.log('ese nombre ya esta siendo utilizado');
           console.log('dataUser.customname',dataUser.customname);
@@ -84,10 +74,12 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
     return newpassword
   }
   const showforTime  =()=>{
+
+    if(!showPasswordArea){
     setShowPassword(true)
     setTimeout(() => {
       setShowPassword(false)
-    }, 3000);
+    }, 3000);}
   }
   const passwordSide = ()=>{
     showPasswordArea? setShowPassword(false):setShowPassword(true);
@@ -153,7 +145,7 @@ const ProfileDectail = ({chagePicture , setChagePicture}) =>{
         </div>
       
     </section>}
-    { chagePicture &&
+    { changePicture &&
     <section className="newPassword-secction">
       <div  className="newimg">
         <p>add a new photo</p>
