@@ -118,8 +118,8 @@
   }
 }
 .dootImage-active {
-  width: 1.2em;
-  height: .8em;
+  width: 1.4em;
+  height: 1em;
   background-color: #ffca40;
   animation: moveDoot 5s infinite;
   position: absolute;
