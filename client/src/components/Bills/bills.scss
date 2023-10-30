@@ -153,6 +153,7 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+ 
 }
 
 .billContainer {
@@ -164,6 +165,11 @@ a {
 .billContainer-svg {
   width: 24px;
   height: 24px;
+
+}
+.billContainer-svg:hover{
+  cursor: pointer;
+  scale: 1.25;
 }
 
 .billContainer-header {
@@ -176,7 +182,7 @@ a {
 }
 
 .billContainer-title {
-  font-size: 36px;
+  font-size: 3em;
   font-family: GilroyBold;
 }
 
@@ -290,14 +296,14 @@ a {
 }
 
 .billDetails {
-  width: 800px;
-  background-color: #ededed;
-  height: 90vh;
+  min-width: 46.25em;
+  background-color: #b9b9b968;
+  height: 95vh;
   right: 0;
   transition: 0.5s ease-in-out;
   z-index: 99;
   padding-top: 30px;
-  box-shadow: -4px 3px 60px 3px hsla(0, 0%, 17%, 0.31);
+  box-shadow: -4px 3px 20px 1px #2b2b2b67;
   border-radius: 1em;
   opacity: 1;
 }
@@ -324,6 +330,10 @@ a {
 
 .detail {
   background-color: #ffca40;
+  min-width: 200px;
+}
+.off {
+  background-color: #9c9c9c;
   min-width: 200px;
 }
 
@@ -400,9 +410,14 @@ a {
   flex-direction: row;
   justify-content: space-between;
   color: #6c6c6c;
+ 
   border-radius: 1em;
   box-shadow: 2px 5px 10px 2px rgba(189, 186, 186, 0.2509803922);
-
+}
+.OrderViewsContainer:hover{
+  cursor: pointer;
+  background-color: #ffc940aa;
+ 
 }
 .OrderViewsDectails{
   display: flex;
@@ -446,11 +461,62 @@ a {
   color: #6c6c6c;
 }
 .orderContainerMap{
-  background-color: #ffca4072;
+  background-color: #ffc94089;
   border-radius: 1em;
   scale: 1.05;
   // position: relative;
   // top: -1px;
   box-shadow: 2px 5px 10px 2px #969696cb;
 
+}
+.NewOrderContainer{
+  width: 100vw;
+  height: 100vh;
+  background-color: #b7b7b7ac;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.newOrderNotification{
+  position: relative;
+}
+.NewOrderButon{
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  color: white;
+  background-color: #c8161d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.4em;
+  transition: .3s ease;
+  transform: rotate(180deg);
+  
+}
+.NewOrderButon:hover{
+  scale: 1.25;
+  cursor: pointer;
+  transform: rotate(0deg);
+ 
+}
+.newOrdersForm{
+  width: auto;
+  height: auto;
+  padding: 1em;
+  border-radius: 1.4em;
+  background-color: white;
+  box-shadow: 4px 8px 10px 6px #969696cb;
+}
+.textDectail{
+  
+  width: 2.9em;
+  display: flex;
+  justify-content: center;
 }

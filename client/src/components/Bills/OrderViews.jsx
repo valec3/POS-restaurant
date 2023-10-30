@@ -1,11 +1,10 @@
 import './bills.scss'
 
-const OrderViews = ({order , id ,currectTable}) =>{
-  order.id = id +1;
+const OrderViews = ({order  ,currectTable}) =>{
   
-
+  
   return (
-<section className={`OrderViewsContainer ${(order.id) == currectTable && 'orderContainerMap'}`}>
+<section className={`OrderViewsContainer ${order.id == currectTable && 'orderContainerMap'}`}>
     <div>
       <div className='OrderViewsDectails'> 
         <p className='OrderViewsTitle'>Order #{order.id}</p>
