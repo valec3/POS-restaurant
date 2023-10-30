@@ -1,7 +1,7 @@
 import useAuth from "../../hooks/useAuth"
 import {eye ,key ,GoogleLogo ,FacebookLogo} from "../../assets/icons"
 import { useState } from "react"
-import { USER_DATA, editOneUser } from "../../const/const"
+import { USER_DATA, editOneUser } from "../../const/userConst"
 import { useNavigate } from "react-router-dom"
 
 const ProfileDectail = ({changePicture, setChangePicture}) =>{
