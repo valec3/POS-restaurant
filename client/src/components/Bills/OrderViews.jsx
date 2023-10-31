@@ -1,6 +1,7 @@
 import './bills.scss'
 
 const OrderViews = ({order  ,currectTable}) =>{
+  const isLocal = order.table != "--";
   
   
   return (
@@ -11,14 +12,14 @@ const OrderViews = ({order  ,currectTable}) =>{
         <div className='statusDectails'  ><span className={`led ${order.status?"Active":"Desiable"}`}></span> <p>{order.status?"Active":"Desiable"}</p> </div>
       </div>
       <div className='OrderViewsDectails'>
-        <p>Table {order.table} </p>
-        <p>{order.guests} guest</p>
+        <p>{isLocal? `Table ${order.table}`:"Delivery"} </p>
+        <p>{isLocal?`guest ${order.guests}`:`for ${order.customers}`} </p>
       </div>
 
     </div>
     <div>
       <p className='OrderViewsTotalPrice'>$42</p>
-      <p>14:30</p>
+      <p>{order.date}</p>
     </div>
 </section>
 )}

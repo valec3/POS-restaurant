@@ -1,6 +1,15 @@
-const BillDectail = ({OrDectail,order}) =>{
-  
 
+import useBill from "../../hooks/useBill";
+
+const BillDectail = ({OrDectail,order}) =>{
+  const bills = useBill();
+  const { allOrders ,completedOrder} = bills;
+    
+ 
+  
+  const payBill =()=>{
+     completedOrder(order.id)
+  }
   return (
 <>
 <section  className={`billDetails ${!OrDectail &&'moveOut'}`}>
@@ -21,7 +30,11 @@ const BillDectail = ({OrDectail,order}) =>{
                 </div>
                 </header>
             <section className="bill-data">
+              <div>
+
                 <p className="userInfo-name ">Details</p>
+                <p className="userInfo-name " >{order.local ? '':' For Delivery'}</p>
+              </div>
                 <div className="billDetails-info">
                 <p className="userInfo-name md">Table</p>
                 <p className="userInfo-name md">Guess</p>
@@ -29,7 +42,7 @@ const BillDectail = ({OrDectail,order}) =>{
                 <p className="userInfo-name md ">asociate</p>
                 <p className="userInfo-name textDectail">{order.table}</p>
                 <p className="userInfo-name textDectail">{order.guests}</p>
-                <p className="userInfo-name ">{order.customers}</p>
+                <p className="userInfo-name ">{order.local ? <p className="userInfo-name textDectail">--</p>:order.customers}</p>
                 <p className="userInfo-name ">{order.asociate}</p>
                 </div>
                 <p className="userInfo-name ">Ordern Info</p>
@@ -70,9 +83,9 @@ const BillDectail = ({OrDectail,order}) =>{
 
             </section>
             <div>
-                <div className="userInfo-img-button detail buttonDectail">
+                <div onClick={()=>payBill()} className="userInfo-img-button detail buttonDectail">
             
-                <p className="userInfo-name md">Cange customers $14.71</p>
+                <p  className="userInfo-name md">Pay</p>
                 
                 </div>
             </div>

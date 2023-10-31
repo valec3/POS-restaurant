@@ -4,42 +4,48 @@ import BillDectail from './BillDectails'
 import { AllOrders, OrderClass } from '../../const/ordesConst'
 import OrderViews from './OrderViews'
 import NewOrder from './NewOrder'
+import useBill from '../../hooks/useBill'
+import BillFilter from './BillFilter'
 const Bills = () => {
+  const bills = useBill();
+  const {curretOrders ,allOrders ,orderToShow , setOrderToShow ,filterBill, setFilterBill ,setCurretOrders} = bills;
     const [currectTable , setCurrentTable] = useState('');
-    const [orders , setOrders] = useState([]);
+    const [isvisible , setIsvisible] = useState(false);
     const [OrDectail , setOrDectail] = useState(false);
-    const [orderToShow , setOrderToShow] = useState({})
     const [newOrder , setNewOrder] = useState(false);
 
     useEffect(()=>{
-      setOrders(AllOrders)
-
-    },[])
+   
+      setCurretOrders(allOrders)
+    },[allOrders])
 
     const selectOrder = (id,index)=>{
    
-      if (orders[index].id != currectTable){
-        console.log('acerssss',orders[index].id ,"new",orderToShow.id);
+      if (curretOrders[index].id != currectTable){
         setCurrentTable(id )
         if(!OrDectail){
        
             setOrDectail(true)
-            setOrderToShow(orders[index])
+            setOrderToShow(curretOrders[index])
           
         }else{
           setOrDectail(false)
           setTimeout(()=>{
             setOrDectail(true)
-            setOrderToShow(orders[index])
+            setOrderToShow(curretOrders[index])
           },500)
         }
+      }else{
+        setOrDectail(false);
+        setCurrentTable('');
       }
     }
     
 
     const addNewOrder = ()=>{
-      setNewOrder(true)
-      setOrDectail(false)
+      setNewOrder(true);
+      setOrDectail(false);
+      setCurrentTable("");
     }
    
     return (
@@ -60,9 +66,10 @@ const Bills = () => {
                 </div>
                 </header>
                 <section className="billContainer-header">
-                <div className="billContainer-filter">
-                <p className="userInfo-subTitle">All order</p>
-                <svg className="billContainer-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" fill="#808080"></path> </g></svg>
+                <div className="billContainer-filter forCategory">
+                <p className="userInfo-subTitle">{filterBill}</p>
+                <BillFilter isvisible={isvisible} setIsvisible={setIsvisible}/>
+                <svg  onClick={()=>setIsvisible(!isvisible)}  className="billContainer-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" fill="#808080"></path> </g></svg>
                 </div>
                 <div className="billContainer-filter">
                 <p className="userInfo-subTitle">May 11 2023</p>
@@ -71,8 +78,8 @@ const Bills = () => {
                 </section>
                 <section className="billCards">
                   {/* all orders  */}
-                    {orders.map((items , index )=>(
-                      <div onClick={()=>selectOrder(items.id,index)} className={orders == index?`orderContainerMap`:""} key={index}>
+                    {curretOrders.map((items , index )=>(
+                      <div onClick={()=>selectOrder(items.id,index)} className={curretOrders == index?`orderContainerMap`:""} key={index}>
                       <OrderViews order={items} id={index} currectTable={currectTable}/>
                       </div>
                     ))}

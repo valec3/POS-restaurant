@@ -1,9 +1,13 @@
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { addNewOrder } from "../../const/ordesConst";
+import useBill from "../../hooks/useBill";
+
 
 const NewOrder = ({setNewOrder}) =>{
+  const bills = useBill();
+  const { allOrders ,orderToShow , setOrderToShow ,addNewOrder ,completedOrder,curretOrders , setCurretOrders} = bills;
   const [infoNewOrder, setInfoNewOrder] = useState({});
+  const [ isLocal , setIsLocal] = useState(true);
   const { auth }= useAuth()
 
 
@@ -13,16 +17,24 @@ const NewOrder = ({setNewOrder}) =>{
     
     setNewOrder(false)
     addNewOrder(infoNewOrder);
+   
+    
     
   };
   const handleInputChange = (event) => {
+    infoNewOrder.local = isLocal;
     const { name, value } = event.target;
     setInfoNewOrder((prevProps) => ({
       ...prevProps,
-      [name]: value
+      [name]: value,
+     
     }));
     
+    
   };
+  const orderLocal = ()=>{
+    setIsLocal(!isLocal);
+  }
   return (
 <section className="NewOrderContainer">
   <div className="newOrderNotification">
@@ -31,6 +43,13 @@ const NewOrder = ({setNewOrder}) =>{
 
   <form className='newOrdersForm' onSubmit={handleSubmit}>
     <p> {auth.customname}</p>
+    <div className='newOrdersBotonContainer'>
+      <div onClick={()=>orderLocal()} className={`newOrdersBoton ${isLocal?'Local':'Delivery'}`}>
+        <p>{isLocal?'Local':'Delivery'}</p>
+      </div>
+      
+    </div>
+          {isLocal?<div>
           <div>
             <input
             className='inputForm'
@@ -52,17 +71,17 @@ const NewOrder = ({setNewOrder}) =>{
             />
           
           </div>
-          <div>
+          </div>:<div>
           <input
             className='inputForm'
               type="text"
               name="customers"
-              placeholder='Main Customers'
+              placeholder='Deliver Custumers'
               // required
               onChange={handleInputChange}
-            />
-     
-          </div>
+            />     
+          </div>}
+        
           <button className='inputButton'> <p className='mainHome-title'>Add Order</p></button>
           {/* <div onClick={()=>setHasAccount(true)} className='inputButton '> <p className='mainHome-title'>Back</p></div> */}
         
