@@ -1,15 +1,24 @@
+$colorAmarillo:#ffca40;
+$colorRojo:#c8161d;
+$simpleBlack:#000;
+$simpleGray:#d5d5d5;
+$simpleWhite:#F8f8f7;
+$fontNormal:Gilroy;
+$fontBold:GilroyBold;
+$fontLight:GilroyLight;
 @font-face {
-  font-family: Gilroy;
-  src: url("../../assets/fuentes/Gilroy-Regular.ttf");
+  font-family:Gilroy;
+  src: url('../../assets/fuentes/Gilroy-Regular.ttf');
 }
 @font-face {
-  font-family: GilroyBold;
-  src: url("../../assets/fuentes/Gilroy-Bold.ttf");
+  font-family:GilroyBold;
+  src: url('../../assets/fuentes/Gilroy-Bold.ttf');
 }
 @font-face {
-  font-family: GilroyLight;
-  src: url("../../assets/fuentes/Gilroy-Light.ttf");
+  font-family:GilroyLight;
+  src: url('../../assets/fuentes/Gilroy-Light.ttf');
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -132,6 +141,7 @@ a {
 .userInfo-subTitle {
   font-family: GilroyLight;
   color: #808080;
+  min-width: 3em;
 }
 
 .userInfo-img-button {
@@ -144,6 +154,7 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+ 
 }
 
 .billContainer {
@@ -155,19 +166,24 @@ a {
 .billContainer-svg {
   width: 24px;
   height: 24px;
+
+}
+.billContainer-svg:hover{
+  cursor: pointer;
+  scale: 1.25;
 }
 
 .billContainer-header {
   width: 100%;
   display: flex;
-  margin: 30px 0;
+  margin: 10px 0;
   padding: 0 40px;
   align-items: center;
   justify-content: space-between;
 }
 
 .billContainer-title {
-  font-size: 36px;
+  font-size: 3em;
   font-family: GilroyBold;
 }
 
@@ -190,7 +206,7 @@ a {
 
 .billCards {
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -249,10 +265,10 @@ a {
   height: 100px;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
-}
+  }
 
 .billSearchBar {
+  
   display: flex;
   gap: 30px;
   border-radius: 10px;
@@ -281,14 +297,15 @@ a {
 }
 
 .billDetails {
-  width: 800px;
-  background-color: #ededed;
-  height: 100vh;
+  min-width: 46.25em;
+  background-color: #b9b9b968;
+  height: 95vh;
   right: 0;
   transition: 0.5s ease-in-out;
   z-index: 99;
   padding-top: 30px;
-  box-shadow: -4px 3px 60px 3px hsla(0, 0%, 17%, 0.31);
+  box-shadow: -4px 3px 20px 1px #2b2b2b67;
+  border-radius: 1em;
   opacity: 1;
 }
 
@@ -314,6 +331,10 @@ a {
 
 .detail {
   background-color: #ffca40;
+  min-width: 200px;
+}
+.off {
+  background-color: #9c9c9c;
   min-width: 200px;
 }
 
@@ -376,3 +397,206 @@ a {
   margin: 0 auto;
   margin-top: 40px;
 }/*# sourceMappingURL=bills.css.map */
+
+.billBigBox{
+  display: flex;
+}
+.OrderViewsContainer{
+  transition: .1s ease-in;
+  display: flex;
+  align-items: center;
+  width: 33em;
+  height: 5em;
+  padding: 0 1em;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #6c6c6c;
+ 
+  border-radius: 1em;
+  box-shadow: 2px 5px 10px 2px rgba(189, 186, 186, 0.2509803922);
+}
+.OrderViewsContainer:hover{
+  cursor: pointer;
+  background-color: #ffc940aa;
+ 
+}
+.OrderViewsDectails{
+  display: flex;
+  gap: 1.5em;
+  
+}
+.led{
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+ 
+  position: absolute;
+   left: 0;
+  // top: .3em;
+
+}
+.statusDectails{
+  width: 6em;
+  
+  padding-left: 1.6em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.Active{
+  background-color: green;
+}
+.Desiable{
+  background-color: red;
+}
+.OrderViewsTitle{
+  font-size: 1.25em;
+  font-weight: bold;
+  font-family: $fontBold;
+  color: #000;
+}
+.OrderViewsTotalPrice{
+  font-size: 1.25em;
+  font-family: $fontBold;
+  color: #6c6c6c;
+}
+.orderContainerMap{
+  background-color: #ffc94089;
+  border-radius: 1em;
+  scale: 1.05;
+  // position: relative;
+  // top: -1px;
+  box-shadow: 2px 5px 10px 2px #969696cb;
+
+}
+.NewOrderContainer{
+  width: 100vw;
+  height: 100vh;
+  background-color: #b7b7b7ac;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.newOrderNotification{
+  position: relative;
+}
+.NewOrderButon{
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  color: white;
+  background-color: #c8161d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.4em;
+  transition: .3s ease;
+  transform: rotate(180deg);
+  
+}
+.NewOrderButon:hover{
+  scale: 1.25;
+  cursor: pointer;
+  transform: rotate(0deg);
+ 
+}
+.newOrdersForm{
+  width: auto;
+  height: auto;
+  padding: 1em;
+  border-radius: 1.4em;
+  background-color: white;
+  box-shadow: 4px 8px 10px 6px #969696cb;
+}
+.textDectail{
+  
+  width: 2.9em;
+  display: flex;
+  justify-content: center;
+}
+.newOrdersBotonContainer{
+  width: 9em;
+  height: 2.5em;
+  margin-left: .5em;
+  background-color: #969696cb;
+  border-radius: .9em;
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+}
+.newOrdersBoton{
+  width: 5em;
+  height: 2.5em;
+  // border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: .8em;
+  background-color: $colorAmarillo;
+  transition: .4s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  p{
+    color: white;
+  font-weight: bold;
+  font-family: $fontBold;
+    text-transform: uppercase;
+  }
+}
+.Local{
+  right: 4em;
+}
+.Delivery{ position: absolute;
+  right: 0em;
+  background-color: #823234;
+}
+.forCategory{
+  position: relative;
+}
+.filterArea{
+  z-index: 99;
+  width: 9.5em;
+  height: 0;
+  background-color: #aeadad0e;
+  position: absolute;
+  border-radius: .8em;
+  top: 1.5em;
+  left: .6em;
+  overflow: hidden;
+  transition: .4s ease-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.isvisible{
+  height: 17em;
+  background-color: #807c7cc3;
+}
+.filterBoton{
+  width: 8em;
+  height: 2em;
+  margin-top: .4em;
+  margin-bottom: .9em;
+  background-color: white;
+  padding-left: 1.2em;
+  border-radius: .8em;
+  text-transform: uppercase;
+  font-family: $fontBold;
+  padding-top: .3em;
+}
+.filterBoton:hover{
+  background-color: $colorAmarillo;
+  cursor: pointer;
+}
+.used{
+  background-color: #db6266;
+  color: white;
+}

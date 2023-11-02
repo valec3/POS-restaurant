@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './style.css'
 import useAuth from '../../hooks/useAuth';
-import { USER_DATA, createNewUser } from '../../const/const';
+import { USER_DATA, createNewUser } from '../../const/userConst';
 import { useNavigate } from "react-router-dom"
 
 function Sign()  {
