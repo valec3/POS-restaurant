@@ -1,0 +1,2 @@
+./node_modules/.bin/webpack-dev-server --config webpack.config.js --hot --inline --progress --colors --content-base ./public
+```

@@ -11,12 +11,16 @@ import FoodsContainer from './components/Foods/FoodsContainer'
 import CategoriesFoods from './components/Foods/Categories/CategoriesFoods'
 import BurgersContainer from './components/Foods/Burgers/BurgersContainer'
 import PizzasContainer from './components/Foods/Pizzas/PizzasContainer'
+import WokContainer from './components/Foods/Wok/WokContainer'
+import PastaContainer from './components/Foods/Pasta/PastaContainer'
+import DrinksContainer from './components/Foods/Drinks/DrinksContainer'
+import DessertsContainer from './components/Foods/Desserts/DessertsContainer'
 
 function App() {
     const { auth }= useAuth()
 
     return (
-    <>
+
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>} />
@@ -33,10 +37,10 @@ function App() {
                             <Route index={true} element={<CategoriesFoods/>} />
                             <Route path="/dashboard/food-drinks/burgers" element={<BurgersContainer/>} />
                             <Route path='/dashboard/food-drinks/pizzas' element={<PizzasContainer/>} />
-                            <Route path='/dashboard/food-drinks/drinks' element={<h2>Drinks</h2>} />
-                            <Route path='/dashboard/food-drinks/wok' element={<h2>Wok</h2>} />
-                            <Route path='/dashboard/food-drinks/pasta' element={<h2>Pasta</h2>} />
-                            <Route path='/dashboard/food-drinks/desserts' element={<h2>Desserts</h2>} />
+                            <Route path='/dashboard/food-drinks/drinks' element={<DrinksContainer/>} />
+                            <Route path='/dashboard/food-drinks/wok' element={<WokContainer/>} />
+                            <Route path='/dashboard/food-drinks/pasta' element={<PastaContainer/>} />
+                            <Route path='/dashboard/food-drinks/desserts' element={<DessertsContainer/>} />
                             <Route path='/dashboard/food-drinks/*' element={<Navigate to='/dashboard/food-drinks'/>} />
                         </Route>
                         <Route path="/dashboard/bills" element={<Bills/>} />
@@ -47,7 +51,6 @@ function App() {
                 <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
         </BrowserRouter>
-    </>
     )
 }
 
