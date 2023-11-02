@@ -20,7 +20,6 @@ function App() {
     const { auth }= useAuth()
 
     return (
-
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>} />
@@ -48,7 +47,7 @@ function App() {
                         <Route path="/dashboard/*" element={<Navigate to='/dashboard'/>} />
                     </Route>
                 </Route>
-                <Route path="*" element={<h1>Not Found</h1>} />
+                <Route path="*" element={<h1>Not Found </h1>} />
             </Routes>
         </BrowserRouter>
     )
