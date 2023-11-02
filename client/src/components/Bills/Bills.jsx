@@ -95,7 +95,7 @@ const Bills = () => {
 
             </section>
             {  <BillDectail OrDectail={OrDectail} order={orderToShow} />}
-           {newOrder&& <NewOrder setNewOrder={setNewOrder}/>}
+            {newOrder&& <NewOrder setNewOrder={setNewOrder}/>}
         </div>
     )
 }
