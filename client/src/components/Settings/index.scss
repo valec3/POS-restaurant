@@ -1,0 +1,49 @@
+$colorAmarillo:#ffca40;
+$colorRojo:#c8161d;
+$simpleBlack:#000;
+$simpleGray:#d5d5d5;
+$simpleWhite:#F8f8f7;
+$fontNormal:Gilroy;
+$fontBold:GilroyBold;
+$fontLight:GilroyLight;
+@font-face {
+  font-family:Gilroy;
+  src: url('../../assets/fuentes/Gilroy-Regular.ttf');
+}
+@font-face {
+  font-family:GilroyBold;
+  src: url('../../assets/fuentes/Gilroy-Bold.ttf');
+}
+@font-face {
+  font-family:GilroyLight;
+  src: url('../../assets/fuentes/Gilroy-Light.ttf');
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.settingContainer{
+  width: 25em;
+  height: 60em;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5em;
+  border-radius:1.25em;
+  align-items: center;
+  position: relative;
+  padding-left: 1.5em;
+  padding-top: 3em;
+  box-shadow: 2px 10px 1.25em 1px #6c6c6c30;
+}
+.settings-options{
+  margin: 0px;
+}
+.settings-logo{
+  margin-right: 1.25em;
+}
+.isSelecte{
+  font-weight: bold;
+  font-family: $fontBold;
+}
