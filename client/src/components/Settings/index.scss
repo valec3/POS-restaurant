@@ -26,10 +26,10 @@ $fontLight:GilroyLight;
 
 .settingContainer{
   width: 25em;
-  height: 60em;
+  height: 30em;
   display: flex;
   flex-direction: column;
-  margin-left: 1.5em;
+   margin-left: 1.5em;
   border-radius:1.25em;
   align-items: center;
   position: relative;
@@ -38,12 +38,35 @@ $fontLight:GilroyLight;
   box-shadow: 2px 10px 1.25em 1px #6c6c6c30;
 }
 .settings-options{
-  margin: 0px;
+  margin: 0px 3.5em;
+  display: flex;
+  align-items: center;
+  transition: .4s ease-in-out;
 }
-.settings-logo{
-  margin-right: 1.25em;
+.settings-options:hover{
+  background-color: #ffca4060;
+  border-radius: .8em;
+  // width: 95%;
+  scale: 0.92;
 }
+
 .isSelecte{
   font-weight: bold;
+  font-family: $fontBold;
+}
+.settings-img{
+  width: 2.5em;
+  height: 1.5em;
+}
+.right-side{
+  margin-top: 10em;
+  background-color: $simpleGray;
+  align-items: flex-start;
+}
+.setting-side{
+ overflow-x: hidden ;
+}
+.right-side-title{
+  font-size: 2em;
   font-family: $fontBold;
 }
