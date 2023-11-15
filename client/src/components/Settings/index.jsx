@@ -24,16 +24,7 @@ const Settings = () =>{
   const [currentSettings, setCurrentSettings] = useState("")
   const [isLoading , setIsLoading]= useState(false);
 
-  // useEffect(()=>{
-  //   console.log('se puso false///////=[');
-    
-  //   setTimeout(() => {
-  //   console.log('se puso true');
-      
-  //   }, 3000);
-
-
-  // },[isLoading])
+  
 
   const showSettingArea =()=>{
 

@@ -33,7 +33,7 @@ $fontLight:GilroyLight;
   border-radius:1.25em;
   align-items: center;
   position: relative;
-  padding-left: 1.5em;
+  padding:0 1.5em;
   padding-top: 3em;
   box-shadow: 2px 10px 1.25em 1px #6c6c6c30;
 }
@@ -69,4 +69,93 @@ $fontLight:GilroyLight;
 .right-side-title{
   font-size: 2em;
   font-family: $fontBold;
+}
+.toglee-containers{
+  width: 22em;
+  height: 1.3em;
+  padding: 0 .5em;
+  border-bottom:1px solid #525252 ;
+  display: flex;
+  justify-content: space-between;
+  color: #525252;
+  padding-bottom: 1.8em;
+
+}
+.toglee-title{
+  color: #000;
+  width: 8em;
+  font-size: 1em;
+  font-family: $fontBold;
+}
+.toglee-main{
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.toglee-button{
+  width: 2.8em;
+  height: 1.4em;
+  border-radius: 2em;
+  background-color: $colorAmarillo;
+  position: relative;
+  //top: -.4em;
+}
+.toglee-button:hover{
+  cursor: pointer;
+  
+}
+.toglee-switch{
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: .1em;
+  transition: .3s ease-in-out;
+  
+}
+.togleeOff{
+  opacity: 1;
+}
+.togleeOn{
+  opacity: .65;
+}
+.togleeFree{
+  left: .2em;
+}
+.togleePress{
+  left: 1.4em;
+}
+.save-title{
+  color: #000;
+  font-size: 1em;
+  font-family: $fontBold;
+}
+.save-button{
+  width: 22em;
+  height: 3.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorAmarillo;
+  border-radius: .4em;
+  margin-bottom: .8em;
+  transition: .3s ease-in-out;
+}
+.save-button:hover{
+  cursor: pointer;
+  
+  background-color: $colorRojo;
+  .save-title{
+    color: white;
+  }
+}
+.appearnce-container{
+  width: 22em;
+  height: 3.3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
