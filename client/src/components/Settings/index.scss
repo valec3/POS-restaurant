@@ -6,6 +6,7 @@ $simpleWhite:#F8f8f7;
 $fontNormal:Gilroy;
 $fontBold:GilroyBold;
 $fontLight:GilroyLight;
+$svgblue:#26aafd;
 @font-face {
   font-family:Gilroy;
   src: url('../../assets/fuentes/Gilroy-Regular.ttf');
@@ -62,6 +63,7 @@ $fontLight:GilroyLight;
   margin-top: 10em;
   background-color: $simpleGray;
   align-items: flex-start;
+  position: relative;
 }
 .setting-side{
  overflow-x: hidden ;
@@ -143,6 +145,8 @@ $fontLight:GilroyLight;
   border-radius: .4em;
   margin-bottom: .8em;
   transition: .3s ease-in-out;
+  position: absolute;
+  bottom:0px;
 }
 .save-button:hover{
   cursor: pointer;
@@ -158,4 +162,22 @@ $fontLight:GilroyLight;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.CheckOut-ca{
+  color: rgb(0, 123, 255);
+}
+.CheckOut-ca:hover{
+  cursor: pointer;
+  text-shadow:1px 1px 2px #ffffff ;
+}
+.segurity-container{
+  margin-top: .5em;
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1.4em;
+}
+.toglee-subtitle{
+  font-size: .5em;
+  position: relative;
+  top: -2.2em;
 }

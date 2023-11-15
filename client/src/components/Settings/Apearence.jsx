@@ -3,7 +3,7 @@ import "./index.scss"
 import SavedButton from "./SavedButton";
 import TogleeButton from "./TogleeButton";
 
-const ApearenceSettings = () =>{
+const ApearenceSettings = ({setCurrentSettings}) =>{
 
   return (
 
@@ -43,7 +43,7 @@ const ApearenceSettings = () =>{
         </div>
         </div>
       </div>
-      <SavedButton/>
+      <SavedButton setCurrentSettings={setCurrentSettings}/>
     </section>
 )}
 

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./index.scss"
 import { useNavigate } from "react-router-dom";
-const SavedButton = () =>{
+const SavedButton = ({setCurrentSettings}) =>{
   const navigate = useNavigate()
 
   const SaveChanges = ()=>{
-    navigate('/dashboard/')
+    setCurrentSettings('')
+    //navigate('/dashboard/settings')
   }
 
   return (

@@ -3,7 +3,7 @@ import "./index.scss"
 import TogleeButton from "./TogleeButton";
 import SavedButton from "./SavedButton";
 
-const NotificationSetting = () =>{
+const NotificationSetting = ({setCurrentSettings}) =>{
 
   return (
 
@@ -42,7 +42,7 @@ const NotificationSetting = () =>{
       <TogleeButton active={false}/> 
     </div>
     </div>
-    <SavedButton/>
+    <SavedButton setCurrentSettings={setCurrentSettings}/>
     </section>
 )}
 

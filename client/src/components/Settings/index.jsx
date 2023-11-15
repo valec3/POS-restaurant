@@ -30,15 +30,15 @@ const Settings = () =>{
 
     
       if (currentSettings == 'Apearence'){
-        return <ApearenceSettings/>
+        return <ApearenceSettings setCurrentSettings={setCurrentSettings}/>
       }else if (currentSettings == 'Notification'){
-        return <NotificationSetting/>
+        return <NotificationSetting setCurrentSettings={setCurrentSettings}/>
       }else if (currentSettings == 'CheckOut'){
-        return <CheckOutSettings/>
+        return <CheckOutSettings setCurrentSettings={setCurrentSettings}/>
       }else if (currentSettings == 'Segurity'){
-        return <SeguritySettings/>
+        return <SeguritySettings setCurrentSettings={setCurrentSettings}/>
       }else if (currentSettings == 'Lenguaje'){
-        return <LenguajeSettings/>
+        return <LenguajeSettings setCurrentSettings={setCurrentSettings}/>
       }
   }
  return (
