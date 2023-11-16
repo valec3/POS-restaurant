@@ -15,6 +15,7 @@ import WokContainer from './components/Foods/Wok/WokContainer'
 import PastaContainer from './components/Foods/Pasta/PastaContainer'
 import DrinksContainer from './components/Foods/Drinks/DrinksContainer'
 import DessertsContainer from './components/Foods/Desserts/DessertsContainer'
+import Support from './components/Support/Support'
 
 function App() {
     const { auth }= useAuth()
@@ -43,7 +44,7 @@ function App() {
                             <Route path='/dashboard/food-drinks/*' element={<Navigate to='/dashboard/food-drinks'/>} />
                         </Route>
                         <Route path="/dashboard/bills" element={<Bills/>} />
-                        <Route path="/dashboard/support" element={<h2>support</h2>} />
+                        <Route path="/dashboard/support" element={<Support/>} />
                         <Route path="/dashboard/*" element={<Navigate to='/dashboard'/>} />
                     </Route>
                 </Route>
