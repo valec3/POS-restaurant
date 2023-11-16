@@ -19,9 +19,16 @@ import eye from './eye.svg';
 import key from './key.svg';
 import lessIcon from './less-icon.svg';
 import arrowLeftIcon from './arrow-left.svg';
+//setting 
+import shield from './shield.svg';
+import lenguaje from './lenguaje.svg';
+import notification from './notification.svg';
+import home from './home.svg';
+import bill from './bill.svg';
+
 
 export{
-    billIcon,
+    billIcon,shield,lenguaje,notification,home,bill,
     clockIcon,
     dashboardIcon,
     hamburgerIcon,

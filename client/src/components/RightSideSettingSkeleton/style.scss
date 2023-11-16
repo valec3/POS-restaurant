@@ -1,0 +1,65 @@
+$colorAmarillo:#ffca40;
+$colorRojo:#c8161d;
+$simpleBlack:#000;
+$simpleGray:#d5d5d5;
+$simpleWhite:#F8f8f7;
+$fontNormal:Gilroy;
+$fontBold:GilroyBold;
+$fontLight:GilroyLight;
+@font-face {
+  font-family:Gilroy;
+  src: url('../../assets/fuentes/Gilroy-Regular.ttf');
+}
+@font-face {
+  font-family:GilroyBold;
+  src: url('../../assets/fuentes/Gilroy-Bold.ttf');
+}
+@font-face {
+  font-family:GilroyLight;
+  src: url('../../assets/fuentes/Gilroy-Light.ttf');
+}
+
+
+
+
+.circ{
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: #6c6c6c;
+  overflow: hidden;
+}
+.barr{
+  width: 18em;
+  height: .6em;
+  border-radius: 2px;
+  background-color: #6c6c6c;
+  margin: 5px 0;
+  overflow: hidden;
+}
+.skeletonContainer{
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  margin: 5px 0px;
+  
+}
+@keyframes loading{
+  0%{
+    transform: translateX(0em);
+  }
+  100%{
+    transform: translateX(20em);
+  }
+}
+.barr-animate{
+  animation: loading 2s infinite ease;
+  width: .1em;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 23px #ffffff;
+}
+.skeletonContainer-title{
+  font-size: 2em;
+  font-family: $fontBold;
+}

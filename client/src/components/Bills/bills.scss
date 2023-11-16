@@ -48,12 +48,16 @@ a {
   padding-top: 50px;
   padding-left: 20px;
 }
-
+.bill-logo{
+  position: relative;
+  bottom: 2em;
+}
 .menu-logo {
   display: flex;
   gap: 20px;
   align-items: center;
   padding-left: 20px;
+ 
 }
 
 .menu-title {

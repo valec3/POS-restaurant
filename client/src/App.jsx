@@ -15,6 +15,7 @@ import WokContainer from './components/Foods/Wok/WokContainer'
 import PastaContainer from './components/Foods/Pasta/PastaContainer'
 import DrinksContainer from './components/Foods/Drinks/DrinksContainer'
 import DessertsContainer from './components/Foods/Desserts/DessertsContainer'
+import Settings from './components/Settings'
 import Support from './components/Support/Support'
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
                 <Route path="/dashboard" element={<ProtectedRoute isAllowed={auth}/>}>
                     <Route path='/dashboard' element={<DashboardPage/>}>
                         <Route index={true} element={<Dashboard/>} />
-                        <Route path="/dashboard/settings" element={<h2>Settings dashboard</h2>} />
+                        <Route path="/dashboard/settings" element={<Settings/>} />
                         <Route path="/dashboard/profile" element={<Profile/>} />
                         <Route path="/dashboard/notifications" element={<h2>Notifications dashboard</h2>} />
                         <Route path="/dashboard/messages" element={<h2>Messages dashboard</h2>} />
