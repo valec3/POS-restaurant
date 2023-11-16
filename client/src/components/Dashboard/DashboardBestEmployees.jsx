@@ -19,15 +19,15 @@ const DashboardBestEmployees = () => {
             <div>
                 {
                     employees.map((employee, index) => (
-                        <div key={index}>
+                        <div key={index} className='flex justify-between'>
                             <div className="best-employee-info">
-                                <img src={`employee.imgUrl`} alt={employee.name} className="best-employee__img"/>
+                                <img src={employee.avatar} alt={employee.name} className="best-employee__img"/>
                                 <div>
                                     <h4 className="best-employee__name">{employee.name}</h4>
                                     <p className="best-employee__position">{employee.position}</p>
                                 </div>
                             </div>
-                            <p className="best-employee__earnings">{employee.earnings}</p>
+                            <p className="best-employee__earnings text-black">{employee.earnings}</p>
                         </div>
 
                         )

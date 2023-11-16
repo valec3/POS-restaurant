@@ -1,7 +1,9 @@
 import DashboardBestEmployees from './DashboardBestEmployees'
-import DashboardDonutChart from './DashboardDonutChart'
+import DashboardDonutChartContent from './DashboardDonutChartContent'
 import DashboardHeader from './DashboardHeader'
 import './Dashboard.css'
+import DashboardAreaChart from './DashboardAreaChart'
+import DashboardTrendingFoods from './DashboardTrendingFoods'
 
 const Dashboard = () => {
     
@@ -21,11 +23,11 @@ const Dashboard = () => {
                 <div className="dashboard-stats">
                     <div className="stat-item stat-item-section">
                         <h3>Daily sales</h3>
-                        <div className="chart" id="areaChart"></div>
+                        <DashboardAreaChart />
                     </div>
-                    <DashboardDonutChart />
+                    <DashboardDonutChartContent />
                     <div className="stat-item stat-item-section trending_dishes" id="trending_dishes">
-                        <div className="trending_dishes-header">
+                        <div className="trending_dishes-header mb-5">
                             <h2>Trending dishes</h2>
                             <select name="" id="">
                                 <option value="">Today</option>
@@ -35,10 +37,11 @@ const Dashboard = () => {
                             </select>
                         </div>
                         <div className="trending-dishes-titles">
-                            <h3>Dishes</h3>
-                            <h3>Orders</h3>
+                            <h3 className='font-semibold mb-2'>Dishes</h3>
+                            <h3 className='font-semibold mb-2'>Orders</h3>
                         </div>
                         <div  id="trending-dishes-list">
+                            <DashboardTrendingFoods />
                         </div>
                     </div>
                     <DashboardBestEmployees />
