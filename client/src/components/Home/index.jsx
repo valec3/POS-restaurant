@@ -54,7 +54,7 @@ useEffect(()=>{
 
   <article className='mainHome-asideRigth'>
    <div className='mainHome-containerRigth'>
-    <p className='mainHome-title mainHome-title--XL' >Welvome Back!</p>
+    <p className='mainHome-title mainHome-title--XL' >Welcome Back!</p>
     <p className='mainHome-subtitle md' > users: admin ,juan ,ana. password 123456</p>
     {auth && <p>estas dentro</p>}
   <section className='containerRigth-formArea' >

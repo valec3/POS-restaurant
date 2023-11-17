@@ -84,9 +84,10 @@ const BillDectail = ({OrDectail,order}) =>{
 
             </section>
             <div>
-               {order.status == "Ereased"? '': <div onClick={()=>payBill()} className="userInfo-img-button detail buttonDectail">
+               {order.status == "Ereased"? '': 
+               <div onClick={()=>payBill()} className={`userInfo-img-button ${order.status?'detail':''} buttonDectail`}>
             
-                <p  className="userInfo-name md">Pay</p>
+                <p  className="userInfo-name md">{order.status?"Pay":"Complete"}</p>
                 
                 </div>}
             </div>

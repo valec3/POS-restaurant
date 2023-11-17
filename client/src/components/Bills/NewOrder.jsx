@@ -5,7 +5,8 @@ import useBill from "../../hooks/useBill";
 
 const NewOrder = ({setNewOrder}) =>{
   const bills = useBill();
-  const {  selectOnetable  ,addNewOrder ,chargeTables ,tableUsaded } = bills;
+  const {  selectOnetable  ,addNewOrder,tableFromMap, setTableFromMap  } = bills;
+  let varTable = bills.TABLEVARIABLE;
   const [infoNewOrder, setInfoNewOrder] = useState({});
   const [ isLocal , setIsLocal] = useState(true);
   const [isFull , setIsFull] = useState(false);
@@ -21,23 +22,17 @@ const NewOrder = ({setNewOrder}) =>{
   
   const handleSubmit = (event) => {
     event.preventDefault();
+    setTableFromMap(null)
     infoNewOrder.asociate = auth.customname;
    
     if (!isLocal){
       infoNewOrder.table = "delivery";
      
     }
-
-   console.log('infoNewOrder.table',infoNewOrder);
-   
     if (infoNewOrder.table){
     setNewOrder(false)
     addNewOrder(infoNewOrder);
   }else showNotification()
-  
-   
-    
-    
   };
   const handleInputChange = (event) => {
     infoNewOrder.local = isLocal;
@@ -114,20 +109,8 @@ const NewOrder = ({setNewOrder}) =>{
           
           :<div>
             <div>
-            <select onChange={handleInputChange} className='inputForm' name="table" id="">
-              
-              <option value="">---</option>
-                <option value="--">Deliveri</option>
-
-              </select>
-            {/* <input
-            className='inputForm'
-              type="text"
-              name="table"
-              value='--'
-              required
-              onChange={handleInputChange}
-            /> */}
+            <div onChange={handleInputChange} className='inputForm' name="table" id="">
+            </div>
           
           </div>
           <input

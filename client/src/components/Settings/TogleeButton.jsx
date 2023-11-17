@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./index.scss"
-const TogleeButton = ({active}) =>{
+const TogleeButton = ({active,setShowTable}) =>{
   const [isPress , setIsPress] = useState(active)
 
   const togleePress = ()=>{
     setIsPress(!isPress)
-    console.log('isPress',isPress);
+    if(setShowTable){
+      setShowTable(e=>!e)
+    }
     
   }
   return (

@@ -6,24 +6,28 @@ import OrderViews from './OrderViews'
 import NewOrder from './NewOrder'
 import useBill from '../../hooks/useBill'
 import BillFilter from './BillFilter'
+import TogleeButton from '../Settings/TogleeButton'
+import BillMap from './Billmap'
 const Bills = () => {
   const bills = useBill();
-  const {curretOrders ,allOrders ,orderToShow , setOrderToShow ,filterBill, setFilterBill ,setCurretOrders} = bills;
+  const {curretOrders  ,orderToShow , setOrderToShow ,filterBill,filterDelivery,setTableFromMap ,forDeliverys } = bills;
+
+  //console.log('forDelivery',forDelivery);
+  
+  
     const [currectTable , setCurrentTable] = useState('');
     const [isvisible , setIsvisible] = useState(false);
     const [OrDectail , setOrDectail] = useState(false);
     const [newOrder , setNewOrder] = useState(false);
+    const [showTable, setShowTable] = useState(false);
     
 
     const selectOrder = (id,index)=>{
-   
       if (curretOrders[index].id != currectTable){
         setCurrentTable(id )
         if(!OrDectail){
-       
             setOrDectail(true)
-            setOrderToShow(curretOrders[index])
-          
+            setOrderToShow(curretOrders[index]);
         }else{
           setOrDectail(false)
           setTimeout(()=>{
@@ -36,14 +40,24 @@ const Bills = () => {
         setCurrentTable('');
       }
     }
-
-    
-
-    const addNewOrder = ()=>{
+    const addNewOrder = (table)=>{
+      if (typeof table == "string"){
+       
+        setTableFromMap(table)
+      }
+      setShowTable(true);
       setNewOrder(true);
       setOrDectail(false);
       setCurrentTable("");
     }
+    
+    // useEffect(()=>{
+    //   const forDelivery = filterDelivery()
+    //   setForDeliverys(forDelivery)
+    //   console.log('forDelivery',forDelivery);
+      
+
+    // },[curretOrders])
    
     return (
         <div className='billBigBox'>
@@ -58,11 +72,13 @@ const Bills = () => {
                 </div>
                 <header className="billContainer-header" >
                 <p className="billContainer-title">Bills</p>
+                <TogleeButton active={showTable} setShowTable={setShowTable}/> 
+                <div>Deleveries: {forDeliverys}</div>
                 <div className="billContainer-svgContainer">
                 <svg onClick={()=>addNewOrder()} className="billContainer-svg" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </div>
                 </header>
-                <section className="billContainer-header">
+                {showTable? <> <section className="billContainer-header">
                 <div className="billContainer-filter forCategory">
                 <p className="userInfo-subTitle">{filterBill}</p>
                 <BillFilter isvisible={isvisible} setIsvisible={setIsvisible}/>
@@ -80,7 +96,8 @@ const Bills = () => {
                       <OrderViews order={items} id={index} selectOrder={selectOrder} currectTable={currectTable} setCurrentTable={setCurrentTable} setOrDectail={setOrDectail}/>
                       </div>
                     ))}
-                </section>
+                </section> </>:<BillMap newOrder={newOrder} addNewOrder={addNewOrder} setNewOrder={setNewOrder} selectOrder={selectOrder}/>}
+                
                 <section className="billSearchContainer">
                 
                 <div className="billSearchBar">

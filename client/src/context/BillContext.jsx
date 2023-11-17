@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { OrderClass} from "../const/ordesConst";
 let idRandom = 0;
 const addTimeCreate=()=>{
@@ -13,9 +13,11 @@ export const BillContext = createContext({});
  
 const BillProvider = ({children}) =>{
   const [filterBill, setFilterBill] = useState('All')
+  const [tableFromMap, setTableFromMap] = useState(null)
   const [orderToShow , setOrderToShow] = useState({});
   const [ tableUsaded , setTableUsaded] = useState([]);
   const [deleteBills, setDeleteBills] = useState([]);
+  let [forDeliverys , setForDeliverys] = useState(0)
   const [allOrders, setAllOrders] = useState([
     new OrderClass({
       id:idRandom++,
@@ -41,10 +43,11 @@ const BillProvider = ({children}) =>{
         guests:4,
         asociate:'unknown',
         customers:'unknown',
-        local:false,
+        local:true,
         date:addTimeCreate()}),
   ])
-  const tableAviable = ['1F','2F','3F','1A','2A','3A','1C','2C','3C']
+  const tableAviable = ['1F','2F','3F','1A','2A','3A','1C','2C','3C'];
+  let TABLEVARIABLE;
 
   const  [curretOrders , setCurretOrders ]= useState(allOrders)
  
@@ -106,6 +109,7 @@ const BillProvider = ({children}) =>{
       const filterBill = allOrders.filter(element => element.local == false );
       
       setCurretOrders(filterBill);
+      return filterBill;
     }
     const filterDelete = ()=>{
       setFilterBill('Delete');
@@ -136,10 +140,16 @@ const BillProvider = ({children}) =>{
     const selectOnetable = ()=>{
       //crea un array solo con las mesas 
       const tableInUsed = filterTable();
-      const freetable = compararArrays(tableAviable,tableInUsed);    
+      const noDelivery = tableAviable.filter(table => table !="delivery")
+      const freetable = compararArrays(noDelivery,tableInUsed);      
       //solo se crearan option con las mesas que esten aviles 
+      if (tableFromMap){
+        
+        return <> <option value=''>--</option> <option value={tableFromMap}>{tableFromMap}</option> </>
+      }else 
 
-      return (<>
+      return (
+     <>
       
       <option value="">---</option>{
         freetable.map((table, index) =>(
@@ -170,15 +180,28 @@ const BillProvider = ({children}) =>{
         
         setAllOrders([...allOrders,order]);
         setCurretOrders([...allOrders,order]);
+        
+        if(!order.local){
+          console.log('forDeliverys',forDeliverys);
+          
+          setForDeliverys(forDeliverys+1)
+        }
        
        
         
       }
+      
+      
+      
+        
+        
+  
+     
 
   const valueContext = {
     allOrders,orderToShow , setOrderToShow,addNewOrder ,completedOrder,filterBill, setFilterBill,
     curretOrders , setCurretOrders ,filterAll ,filterActive ,filterDesiable,filterLocal,filterDelivery,tableAviable,
-    selectOnetable,filterTable,tableUsaded,deleteToBill,filterDelete
+    selectOnetable,filterTable,tableUsaded,deleteToBill,filterDelete,tableAviable,tableFromMap, setTableFromMap,TABLEVARIABLE,forDeliverys , setForDeliverys
   };
   return(
     <BillContext.Provider value={valueContext }>
