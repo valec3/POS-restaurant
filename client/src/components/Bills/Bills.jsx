@@ -13,16 +13,7 @@ const Bills = () => {
     const [isvisible , setIsvisible] = useState(false);
     const [OrDectail , setOrDectail] = useState(false);
     const [newOrder , setNewOrder] = useState(false);
-    console.log('currectTable',currectTable);
     
-
-    useEffect(()=>{
-
-      fetch('/api/data').then(a => a.toString()).then(a => console.log("respose",a));
-      
-   
-      setCurretOrders(allOrders)
-    },[allOrders])
 
     const selectOrder = (id,index)=>{
    
@@ -45,6 +36,7 @@ const Bills = () => {
         setCurrentTable('');
       }
     }
+
     
 
     const addNewOrder = ()=>{
@@ -84,8 +76,8 @@ const Bills = () => {
                 <section className="billCards">
                   {/* all orders  */}
                     {curretOrders.map((items , index )=>(
-                      <div onClick={()=>selectOrder(items.id,index)} className={curretOrders == index?`orderContainerMap`:""} key={index}>
-                      <OrderViews order={items} id={index} currectTable={currectTable}/>
+                      <div  className={curretOrders == index?`orderContainerMap`:""} key={index}>
+                      <OrderViews order={items} id={index} selectOrder={selectOrder} currectTable={currectTable} setCurrentTable={setCurrentTable} setOrDectail={setOrDectail}/>
                       </div>
                     ))}
                 </section>

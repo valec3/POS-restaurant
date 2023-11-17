@@ -2,7 +2,7 @@ import useBill from "../../hooks/useBill";
 
 const BillFilter = ({isvisible ,setIsvisible}) =>{
   const bills = useBill();
-  const { filterBill, setFilterBill ,filterAll ,filterActive ,filterDesiable,filterLocal,filterDelivery } = bills;
+  const { filterBill, filterDelete ,filterAll ,filterActive ,filterDesiable,filterLocal,filterDelivery } = bills;
 
   return (
   <section className={`filterArea ${isvisible?'isvisible':""}`}>
@@ -13,6 +13,7 @@ const BillFilter = ({isvisible ,setIsvisible}) =>{
   <div onClick={()=>(filterDesiable(),setIsvisible(false))} className={`filterBoton ${filterBill == 'Desiable' && 'used'}`} >Desiable</div>
   <div onClick={()=>(filterLocal(),setIsvisible(false))} className={`filterBoton ${filterBill == 'Local' && 'used'}`} >Local</div>
   <div onClick={()=>(filterDelivery(),setIsvisible(false))} className={`filterBoton ${filterBill == 'Delivery' && 'used'}`} >Delivery</div>
+  <div onClick={()=>(filterDelete(),setIsvisible(false))} className={`filterBoton ${filterBill == 'Delete' && 'used'}`} >Delete</div>
   </div>
   
 

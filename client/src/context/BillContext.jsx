@@ -10,24 +10,26 @@ const addTimeCreate=()=>{
  }
 
 export const BillContext = createContext({});
-
-
+ 
 const BillProvider = ({children}) =>{
   const [filterBill, setFilterBill] = useState('All')
   const [orderToShow , setOrderToShow] = useState({});
+  const [ tableUsaded , setTableUsaded] = useState([]);
+  const [deleteBills, setDeleteBills] = useState([]);
   const [allOrders, setAllOrders] = useState([
     new OrderClass({
       id:idRandom++,
-      table:1,
+      table:'1F',
       guests:4,
+      status:true,
       asociate:'unknown',
       customers:'unknown',
       local:true,
       date:addTimeCreate()}),
       new OrderClass({
         id:idRandom++,
-        table:'4F',
-        guests:4,
+        table:'2F',
+        guests:14,
         status:false,
         asociate:'unknown',
         customers:'unknown',
@@ -35,32 +37,33 @@ const BillProvider = ({children}) =>{
         date:addTimeCreate()}),
       new OrderClass({
         id:idRandom++,
-        table:'--',
-        guests:'--',
+        table:'2C',
+        guests:4,
         asociate:'unknown',
         customers:'unknown',
         local:false,
         date:addTimeCreate()}),
   ])
+  const tableAviable = ['1F','2F','3F','1A','2A','3A','1C','2C','3C']
+
   const  [curretOrders , setCurretOrders ]= useState(allOrders)
-  const  addNewOrder = (newInfo)=>{
-   
-    const order = new OrderClass({
-      id:idRandom++,
-      table:newInfo.table,
-      guests:newInfo.guests,
-      asociate:newInfo.asociate,
-      customers:newInfo.customers,
-      local:newInfo.local,
-      date:addTimeCreate()});
-      setAllOrders([...allOrders,order]);
-     
-      setCurretOrders(allOrders);
-    }
+ 
     const billToErease = (id)=>{
       const olderBills = allOrders.filter(element => element.id != id);
+     
+      setCurretOrders(olderBills)
       setAllOrders(olderBills);
       
+    }
+    const deleteToBill = (id)=>{
+      const bills = allOrders.filter(bill => bill.id != id)
+      const bill = allOrders.filter(bill => bill.id == id)
+      bill[0].status = 'Ereased'
+      setDeleteBills([...deleteBills,...bill])
+        setAllOrders(bills);
+        setCurretOrders(bills);
+       
+
     }
     const billtoChange = (id)=>{
       const indexBill = allOrders.findIndex(element => element.id == id);
@@ -73,11 +76,12 @@ const BillProvider = ({children}) =>{
       const editBill = billtoChange(id)
       editBill.status = false;
       setAllOrders([...allOrders]);
-      
+      setCurretOrders([...allOrders]);
     }
     //filter 
     const filterAll =()=>{
       setFilterBill('All')
+      
       
       setCurretOrders(allOrders);
     }
@@ -103,10 +107,78 @@ const BillProvider = ({children}) =>{
       
       setCurretOrders(filterBill);
     }
+    const filterDelete = ()=>{
+      setFilterBill('Delete');
+      console.log('deleteBills',deleteBills);
+      
+      setCurretOrders(deleteBills);
+    }
+
+    //selectOneTable 
+    const filterTable = ()=>{
+      //crear un objeto con las mesas y si estan disponibles
+        const aviable = allOrders.map(bill =>{ if(bill.status) {
+        return bill.table}})
+        //filtar solo para que quede la mesa que esta siendo ocupda quitando las de delivery
+        .filter(bill => typeof(bill) == "string").filter(bill => bill !='--')
+     
+      return aviable;
+      
+    }
+    const  compararArrays =(array1, array2)=> {
+      // Filtrar elementos que no están en ambos arrays
+      const diferencias = array1.filter(elemento => !array2.includes(elemento))
+      .concat(array2.filter(elemento => !array1.includes(elemento)));
+      return diferencias;
+    }
+   
+
+    const selectOnetable = ()=>{
+      //crea un array solo con las mesas 
+      const tableInUsed = filterTable();
+      const freetable = compararArrays(tableAviable,tableInUsed);    
+      //solo se crearan option con las mesas que esten aviles 
+
+      return (<>
+      
+      <option value="">---</option>{
+        freetable.map((table, index) =>(
+          <option key={index} value={table}>{table}</option>
+        ))
+      }
+      
+      </>)
+      
+      
+      
+      
+   
+      
+    };
+   
+    const  addNewOrder = (newInfo)=>{
+   
+      const order = new OrderClass({
+        id:idRandom++,
+        table:newInfo.table,
+        guests:newInfo.guests,
+        asociate:newInfo.asociate,
+        customers:newInfo.customers,
+        local:newInfo.local,
+        date:addTimeCreate()});
+
+        
+        setAllOrders([...allOrders,order]);
+        setCurretOrders([...allOrders,order]);
+       
+       
+        
+      }
 
   const valueContext = {
     allOrders,orderToShow , setOrderToShow,addNewOrder ,completedOrder,filterBill, setFilterBill,
-    curretOrders , setCurretOrders ,filterAll ,filterActive ,filterDesiable,filterLocal,filterDelivery
+    curretOrders , setCurretOrders ,filterAll ,filterActive ,filterDesiable,filterLocal,filterDelivery,tableAviable,
+    selectOnetable,filterTable,tableUsaded,deleteToBill,filterDelete
   };
   return(
     <BillContext.Provider value={valueContext }>

@@ -13,7 +13,7 @@ const prueba = {
 export const AuthContext = createContext({})
 
 export const AuthProvider = ({children }) =>{
-  const [auth, setAuth ] = useState();
+  const [auth, setAuth ] = useState(prueba);
   const [hasAccount, setHasAccount] =useState(true)
 
   const loging = (useData) =>{

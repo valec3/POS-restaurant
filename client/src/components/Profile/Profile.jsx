@@ -28,7 +28,7 @@ const Profile = () =>{
     <section className="profileContainer flex-1">
       <div  className="profileCard h-full justify-between">
         <div className="flex flex-col">
-          <div className="profileImgContainer h-full">
+          <div className="profileImgContainer ">
             <img className="profileImg" src={auth.image} alt="" />
             
             <div onClick={()=>setChangePicture(!changePicture)} className="profileImgEdit" >

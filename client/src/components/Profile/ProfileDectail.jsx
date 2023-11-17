@@ -178,7 +178,7 @@ const ProfileDectail = ({changePicture, setChangePicture}) =>{
       </div>
     </div>
 
-    <button className='inputButton '> <p className='mainHome-title'>Save Changes</p></button>
+    <button className='inputButton  profile-button'> <p className='mainHome-title'>Save Changes</p></button>
 
 </form>
 </section>

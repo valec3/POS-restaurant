@@ -8,7 +8,8 @@ const BillDectail = ({OrDectail,order}) =>{
  
   
   const payBill =()=>{
-     completedOrder(order.id)
+
+    order.id && completedOrder(order.id)
   }
   return (
 <>
@@ -23,11 +24,11 @@ const BillDectail = ({OrDectail,order}) =>{
                 </section>
                 <header className="billContainer-header" >
                 <p className="billContainer-title">Order # {order.id}</p>
-                <div className={`userInfo-img-button ${order.status? 'detail':'off'} `}>
+                {order.status == "Ereased"? '': <div className={`userInfo-img-button ${order.status? 'detail':'off'} `}>
             
                     <p className="userInfo-name md"> {order.status? 'Active':'Disiable'}</p>
                 
-                </div>
+                </div>}
                 </header>
             <section className="bill-data">
               <div>
@@ -83,11 +84,11 @@ const BillDectail = ({OrDectail,order}) =>{
 
             </section>
             <div>
-                <div onClick={()=>payBill()} className="userInfo-img-button detail buttonDectail">
+               {order.status == "Ereased"? '': <div onClick={()=>payBill()} className="userInfo-img-button detail buttonDectail">
             
                 <p  className="userInfo-name md">Pay</p>
                 
-                </div>
+                </div>}
             </div>
 
             </section>
