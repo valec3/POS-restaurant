@@ -41,7 +41,7 @@ $fontLight:GilroyLight;
 }
 .profileCard{
   width: 25em;
-  height: 60em;
+  height: 44em; //
   display: flex;
   flex-direction: column;
   //justify-content: center; 
@@ -57,30 +57,34 @@ $fontLight:GilroyLight;
   padding-top: 3.75em;
 }
 .profileImgContainer{
+  width: 90%;
   
    padding-top: 2.5em;
    padding-left: 3.5em;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .profileImg{
-  width: 16.25em;
-  height: 16.25em;
+  width: 10.25em;
+  height: 10.25em;
   
   border-radius: 50%;
 }
 .profileImgEdit{
-  width: 3.75em;
-  height: 3.75em;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   background-color: $colorAmarillo;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 13.9em;
-  right: 5em;
+  top: 9em;
+  right: 6.4em;
   animation: .6s ease-in-out;
   img{
-    width: 2.5em;
+    width: 1.5em;
   }
 }
 .profileImgEdit:hover{
@@ -161,7 +165,7 @@ background-color: #ff7a10;
 
 }
 .profileCard-otherLinksContainer{
-  margin-top: 12.5em;
+  margin-top: 6.5em;
 }
 .password{
   
@@ -209,4 +213,8 @@ background-color: #ff7a10;
   }
 .botton{
   margin-top: 11em;
+}
+.profile-button{
+  position: relative;
+  top: -6em;//
 }

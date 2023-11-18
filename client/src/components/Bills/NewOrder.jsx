@@ -1,25 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useBill from "../../hooks/useBill";
 
 
 const NewOrder = ({setNewOrder}) =>{
   const bills = useBill();
-  const { allOrders ,orderToShow , setOrderToShow ,addNewOrder ,completedOrder,curretOrders , setCurretOrders} = bills;
+  const {  selectOnetable  ,addNewOrder,tableFromMap, setTableFromMap  } = bills;
+  let varTable = bills.TABLEVARIABLE;
   const [infoNewOrder, setInfoNewOrder] = useState({});
   const [ isLocal , setIsLocal] = useState(true);
+  const [isFull , setIsFull] = useState(false);
+  const [hasTable , setHasTable] = useState(false);
   const { auth }= useAuth()
 
-
+  const showNotification = ()=>{
+    setHasTable(true);
+    setTimeout(()=>{
+      setHasTable(false)
+    },4000);
+  }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
+    setTableFromMap(null)
     infoNewOrder.asociate = auth.customname;
-    
+   
+    if (!isLocal){
+      infoNewOrder.table = "delivery";
+     
+    }
+    if (infoNewOrder.table){
     setNewOrder(false)
     addNewOrder(infoNewOrder);
-   
-    
-    
+  }else showNotification()
   };
   const handleInputChange = (event) => {
     infoNewOrder.local = isLocal;
@@ -33,8 +46,21 @@ const NewOrder = ({setNewOrder}) =>{
     
   };
   const orderLocal = ()=>{
-    setIsLocal(!isLocal);
+    if(!isFull){
+    setIsLocal(!isLocal);}
   }
+  
+  useEffect(()=>{
+    const tableOptions = selectOnetable();
+    const tablesList = tableOptions.props.children[1];
+    const moreLocal = tablesList.length < 1
+    if (moreLocal){
+      setIsFull(true)
+      setIsLocal(false);
+    }else setIsFull(false)
+  
+    
+  },[])
   return (
 <section className="NewOrderContainer">
   <div className="newOrderNotification">
@@ -43,46 +69,61 @@ const NewOrder = ({setNewOrder}) =>{
 
   <form className='newOrdersForm' onSubmit={handleSubmit}>
     <p> {auth.customname}</p>
+    <section className="newOrderNotificationArea">
     <div className='newOrdersBotonContainer'>
       <div onClick={()=>orderLocal()} className={`newOrdersBoton ${isLocal?'Local':'Delivery'}`}>
         <p>{isLocal?'Local':'Delivery'}</p>
       </div>
       
     </div>
-          {isLocal?<div>
+    {isFull && <div className="newOrderNotification"><p>El Salon esta full.</p></div>}
+    {hasTable && <div className="newOrderNotification"><p>Seleccione una mesa</p></div>}
+    </section>
+          {isLocal?
           <div>
-            <input
-            className='inputForm'
-              type="text"
-              name="table"
-              placeholder='Table'
-              required
-              onChange={handleInputChange}
-            />
-          </div>
+      
+         
+          
+           <div>
+              <select onChange={handleInputChange} className='inputForm' name="table" id="">
+                
+                {selectOnetable()}
+
+              </select>
+            </div>
+        
           <div>
             <input
             className='inputForm'
               type="text"
               name="guests"
               placeholder='guests'
-              // required
+              required
               onChange={handleInputChange}
             />
           
           </div>
-          </div>:<div>
+          
+          <CreateButton/>
+          </div>
+          
+          :<div>
+            <div>
+            <div onChange={handleInputChange} className='inputForm' name="table" id="">
+            </div>
+          
+          </div>
           <input
             className='inputForm'
               type="text"
               name="customers"
               placeholder='Deliver Custumers'
-              // required
+              required
               onChange={handleInputChange}
-            />     
+            /> 
+              <CreateButton/>
           </div>}
         
-          <button className='inputButton'> <p className='mainHome-title'>Add Order</p></button>
           {/* <div onClick={()=>setHasAccount(true)} className='inputButton '> <p className='mainHome-title'>Back</p></div> */}
         
         </form>
@@ -93,5 +134,16 @@ const NewOrder = ({setNewOrder}) =>{
 
 </section>
 )}
+
+const CreateButton = () =>{
+
+  return (
+
+<button className='inputButton'> <p className='mainHome-title'>Add Order</p></button>
+          
+
+)}
+
+
 
 export default NewOrder
