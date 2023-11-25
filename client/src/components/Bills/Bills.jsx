@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react'
 import './bills.scss'
 import BillDectail from './BillDectails'
-import { AllOrders, OrderClass } from '../../const/ordesConst'
+
 import OrderViews from './OrderViews'
 import NewOrder from './NewOrder'
 import useBill from '../../hooks/useBill'
 import BillFilter from './BillFilter'
 import TogleeButton from '../Settings/TogleeButton'
 import BillMap from './Billmap'
+
 const Bills = () => {
   const bills = useBill();
-  const {curretOrders  ,orderToShow , setOrderToShow ,filterBill,filterDelivery,setTableFromMap ,forDeliverys } = bills;
-
-  //console.log('forDelivery',forDelivery);
-  
+  const {curretOrders  ,orderToShow , setOrderToShow ,filterBill,setTableFromMap ,forDeliverys } = bills;  
   
     const [currectTable , setCurrentTable] = useState('');
     const [isvisible , setIsvisible] = useState(false);
@@ -51,13 +49,17 @@ const Bills = () => {
       setCurrentTable("");
     }
     
-    // useEffect(()=>{
-    //   const forDelivery = filterDelivery()
-    //   setForDeliverys(forDelivery)
-    //   console.log('forDelivery',forDelivery);
+    useEffect(()=>{
+      (async()=>{
+        const data = await getDataApi()
       
-
-    // },[curretOrders])
+       
+        console.log('hola desde add d',data);
+        
+      })();
+      
+      
+    },[])
    
     return (
         <div className='billBigBox'>
