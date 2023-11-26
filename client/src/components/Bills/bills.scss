@@ -683,3 +683,77 @@ a {
   background-color: $colorRojo;
   color: white;
 }
+.boton-add{
+  opacity: .9;
+  width: 100px;
+  height: 30px;
+  margin-left: 1em;
+  padding-left: .8em;
+  border-radius: 8px;
+  background-color: $colorAmarillo;
+  box-shadow: 1px 3px 3px 1px #6c6c6c;
+  transition: .1s ease-in-out;
+}
+.boton-add:hover{
+  opacity: 1;
+transform: translateY(1px);
+box-shadow: none;
+cursor: pointer;
+}
+.items-containers{
+  //border: #000 solid 1px;
+  width: 100%;
+  height: 10em;
+  overflow-x: scroll;
+}
+.items-details{
+  display: flex;
+  gap: 1em;
+  margin: .5em;
+  margin-left: 2em;
+
+}
+.AddItemsView-containers{
+  background-color: #6c6c6ce6;
+  width: 40em;
+  height: 40em;
+  position: absolute;
+  transform: translateX(-70vh);
+  top: 100px;
+  display: none;
+  z-index: 99;
+  border-radius: 1em;
+  padding: 1em;
+  box-shadow: 1px 8px 8px 1px #6c6c6c90;
+}
+.toMostrar{
+display: block;
+}
+.AddItemsView-info{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+}
+.AddItemsView-boton{
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: $colorRojo;
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 4px 4px 1px #545454;
+  transition: .1s ease-in-out;
+}
+.AddItemsView-boton:hover{
+  cursor: pointer;
+  transform: translateY(1px);
+box-shadow: none;
+  
+}

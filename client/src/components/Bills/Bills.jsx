@@ -8,6 +8,7 @@ import useBill from '../../hooks/useBill'
 import BillFilter from './BillFilter'
 import TogleeButton from '../Settings/TogleeButton'
 import BillMap from './Billmap'
+import { takeAll } from '../../const/apiConst'
 
 const Bills = () => {
   const bills = useBill();
@@ -50,11 +51,13 @@ const Bills = () => {
     }
     
     useEffect(()=>{
-      (async()=>{
-        const data = await getDataApi()
+      console.log('hola');
       
-       
-        console.log('hola desde add d',data);
+      (async()=>{
+        
+      
+        const data2 = await takeAll()
+        console.log('hola desde add d',data2);
         
       })();
       

@@ -18,6 +18,7 @@ const BillMap = ({selectOrder,setNewOrder,newOrder,addNewOrder}) =>{
   useState(()=>{
     const noDelivery = tableAviable.filter(table => table !="delivery")
     const tables = noDelivery.map((table, index)=>{
+      const originID = index;
       const isOcupated =   tableOcupated.includes(table)
      
         const bills = allOrders.filter(bill => bill.table == table)
@@ -25,13 +26,14 @@ const BillMap = ({selectOrder,setNewOrder,newOrder,addNewOrder}) =>{
         if(typeof (result[0]?.id)=="number"){
           id = result[0]?.id
         setOneTable(result[0]?.id)
+        
         index = curretOrders.findIndex(element => element.id == id);
         }
       
   
-      return  <div onClick={()=>{isOcupated ? selectOrder(id,index):addNewOrder(table)}} 
+      return  <div  onClick={()=>{isOcupated ? selectOrder(id,index):addNewOrder(table)}} 
       className={`tableMap ${isOcupated?'ocupated':""}`}
-       key={index}>{table}
+       key={originID}>{table}
        </div>
     })
     setShowTable(tables)
