@@ -5,11 +5,16 @@ import AddItemsView from "./addItems";
 
 const BillDectail = ({OrDectail,order}) =>{
   const bills = useBill();
-  const { allOrders ,completedOrder} = bills;
+  const { completedOrder ,allItems , setAllItems} = bills;
   const [isVisible, setIsVisible] = useState(false)
     
  
-  
+  // const calcularItems =()=>{
+  // //  const result = order.dectail.reduce((numer , elemeto)=>{
+  // //   return numer + elemeto.price
+  // //  },0);
+  //  return order.dectail
+  // }
   const payBill =()=>{
 
     order.id && completedOrder(order.id)
@@ -18,7 +23,7 @@ const BillDectail = ({OrDectail,order}) =>{
 <>
 <section  className={`billDetails ${!OrDectail &&'moveOut'}`}>
                 <section className="billContainer-header">
-                <AddItemsView isVisible={isVisible} setIsVisible={setIsVisible}/>
+                <AddItemsView isVisible={isVisible} setIsVisible={setIsVisible} order={order}/>
                 <div className="billContainer-filter">
                 <svg className="billContainer-svg" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#1d1b1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 <p className="userInfo-subTitle lg">Payment history</p>
@@ -51,7 +56,7 @@ const BillDectail = ({OrDectail,order}) =>{
                 <p className="userInfo-name ">{order.asociate}</p>
                 </div>
                 {/* boton para agregar iten ala orden */}
-                <div onClick={()=>(setIsVisible(true) ,console.log('isVisible',isVisible)
+                <div onClick={()=>(setIsVisible(true) 
                 )} className=" userInfo-name boton-add">ADD  </div>
                 <div className="bill-list mainlist">
                 <div className="bill-list">
@@ -60,22 +65,22 @@ const BillDectail = ({OrDectail,order}) =>{
                 </div>
                 {/* donde iran donde los items agregados */}
                 <div className="items-containers" >
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
-                  <DetailItem/>
+                 
+                  {
+                    // console.log('order----',order.dectail)
+                    
+                    order?.dectail?.map((items , index)=>(
+                      <DetailItem key={index} items={items}/>
+                    ))
+                  }
+                 
 
                 </div>
              
                 </div>
                 <div className="bill-list mainlist row">
                 <p className="userInfo-name ">Total</p>
-                <p className="userInfo-name ">$48</p>
+                <p className="userInfo-name ">$22</p>
                 </div>
 
             </section>
@@ -92,23 +97,23 @@ const BillDectail = ({OrDectail,order}) =>{
 </>
 )}
 
-const DetailItem = () =>{
+const DetailItem = ({items}) =>{
 
   return (
 <>
 <div className="bill-list">
                     <div className="bill-list listdectail">
-                    <img className="bill-img"  src="https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472:1-4-product-tile-desktop" alt=""/>
+                    {/* <img className="bill-img"  src="https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472:1-4-product-tile-desktop" alt=""/> */}
                     
                       <div className="items-details">
                         
                       <p className="userInfo-name md">1</p>
                       <p className="userInfo-name md">x</p>
-                      <p className="userInfo-name md">Hamburgesa</p>
+                      <p className="userInfo-name md">{items.name}</p>
                       </div>
                     </div>
                     
-                    <p className="userInfo-name md">$14.34</p>
+                    <p className="userInfo-name md">{items.price}</p>
                 </div>
                 
 </>

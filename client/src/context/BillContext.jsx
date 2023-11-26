@@ -46,6 +46,7 @@ const BillProvider = ({children}) =>{
         local:true,
         date:addTimeCreate()}),
   ])
+  const [allItems , setAllItems] = useState([]);
   const tableAviable = ['1F','2F','3F','1A','2A','3A','1C','2C','3C'];
   let TABLEVARIABLE;
 
@@ -201,7 +202,8 @@ const BillProvider = ({children}) =>{
   const valueContext = {
     allOrders,orderToShow , setOrderToShow,addNewOrder ,completedOrder,filterBill, setFilterBill,
     curretOrders , setCurretOrders ,filterAll ,filterActive ,filterDesiable,filterLocal,filterDelivery,tableAviable,
-    selectOnetable,filterTable,tableUsaded,deleteToBill,filterDelete,tableAviable,tableFromMap, setTableFromMap,TABLEVARIABLE,forDeliverys , setForDeliverys
+    selectOnetable,filterTable,tableUsaded,deleteToBill,filterDelete,tableAviable,tableFromMap, setTableFromMap,TABLEVARIABLE,forDeliverys , setForDeliverys,
+    allItems , setAllItems
   };
   return(
     <BillContext.Provider value={valueContext }>
