@@ -142,6 +142,10 @@ a {
   font-size: 20px;
 }
 
+.item-name{
+  width: 300px;
+ 
+}
 .userInfo-subTitle {
   font-family: GilroyLight;
   color: #808080;
@@ -306,7 +310,8 @@ a {
 .billDetails {
   min-width: 46.25em;
   background-color: #b9b9b968;
-  height: 95vh;
+  height: auto;
+ 
   right: 0;
   transition: 0.5s ease-in-out;
   z-index: 99;
@@ -693,6 +698,7 @@ a {
   background-color: $colorAmarillo;
   box-shadow: 1px 3px 3px 1px #6c6c6c;
   transition: .1s ease-in-out;
+  margin-bottom: 1em;
 }
 .boton-add:hover{
   opacity: 1;
@@ -701,7 +707,6 @@ box-shadow: none;
 cursor: pointer;
 }
 .items-containers{
-  //border: #000 solid 1px;
   width: 100%;
   height: 10em;
   overflow-x: scroll;
@@ -733,7 +738,6 @@ display: block;
   position: relative;
   width: 100%;
   height: 85%;
-  border: #000 dotted 1px;
   
 }
 .AddItemsView-title{
@@ -770,6 +774,7 @@ box-shadow: none;
   width: 100%;
   height: auto;
   gap: 4px;
+  padding: 1em 0;
   overflow: scroll;
   
 }
@@ -810,8 +815,21 @@ box-shadow: none;
   font-size: 1em;
 }
 .AddItemsView-Botones-Container{
-  width: 100%;
+  width: 95%;
   height: 6.4em;
   display: flex;
+  justify-content: center;
+}
+.boton-clear{
+  width: auto;
+  height: 2em;
+  background-color: $colorRojo;
+  font-family: $fontBold;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  border-radius: 8px;
+  color: white;
+  padding: 0 1em;
 }

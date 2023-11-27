@@ -7,14 +7,9 @@ const BillDectail = ({OrDectail,order}) =>{
   const bills = useBill();
   const { completedOrder ,allItems , setAllItems} = bills;
   const [isVisible, setIsVisible] = useState(false)
-    
+  let totalPrice = 0;
  
-  // const calcularItems =()=>{
-  // //  const result = order.dectail.reduce((numer , elemeto)=>{
-  // //   return numer + elemeto.price
-  // //  },0);
-  //  return order.dectail
-  // }
+  
   const payBill =()=>{
 
     order.id && completedOrder(order.id)
@@ -56,8 +51,8 @@ const BillDectail = ({OrDectail,order}) =>{
                 <p className="userInfo-name ">{order.asociate}</p>
                 </div>
                 {/* boton para agregar iten ala orden */}
-                <div onClick={()=>(setIsVisible(true) 
-                )} className=" userInfo-name boton-add">ADD  </div>
+                {(order.status && (order.status != 'Ereased') )&& <div onClick={()=>(setIsVisible(true) 
+                )} className=" userInfo-name boton-add">ADD  </div>}
                 <div className="bill-list mainlist">
                 <div className="bill-list">
                 <p className="userInfo-name md">Items</p>
@@ -69,9 +64,11 @@ const BillDectail = ({OrDectail,order}) =>{
                   {
                     // console.log('order----',order.dectail)
                     
-                    order?.dectail?.map((items , index)=>(
+                    order?.dectail?.map((items , index)=>{
+                      totalPrice += items.price;
+                      return(
                       <DetailItem key={index} items={items}/>
-                    ))
+                    )})
                   }
                  
 
@@ -80,7 +77,7 @@ const BillDectail = ({OrDectail,order}) =>{
                 </div>
                 <div className="bill-list mainlist row">
                 <p className="userInfo-name ">Total</p>
-                <p className="userInfo-name ">$22</p>
+                <p className="userInfo-name ">${totalPrice}.00</p>
                 </div>
 
             </section>
@@ -109,11 +106,11 @@ const DetailItem = ({items}) =>{
                         
                       <p className="userInfo-name md">1</p>
                       <p className="userInfo-name md">x</p>
-                      <p className="userInfo-name md">{items.name}</p>
+                      <p className="userInfo-name item-name md ">{items.name}</p>
                       </div>
                     </div>
                     
-                    <p className="userInfo-name md">{items.price}</p>
+                    <p className="userInfo-name md">${items.price}.00</p>
                 </div>
                 
 </>

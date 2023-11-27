@@ -47,27 +47,11 @@ const resteOrder =() =>{
 const addToList =()=>{
   const otherBills = allOrders.filter(items => items.id != order.id)
  
-  order.dectail=[...order.dectail,itemSelected]
-
-  // setAllItems([...otherBills,order])
-   //setCurretOrders([...otherBills,order])
-
-  // console.log('editOreder',order);
-  
-  
-  // console.log('order',otherBills);
-  
+  order.dectail=[...order.dectail,itemSelected];  
   const newArray = [...otherBills,order];
-  //console.log('newArray',newArray);
+  
   setCurretOrders(newArray)
-  console.log('curretOrdersqqqqq',curretOrders);
-  
-  
-
-  
-
-  
-  
+  resteOrder();
 }
 
   return (
@@ -105,7 +89,7 @@ const addToList =()=>{
     </div>}
   </main>
   <section className="AddItemsView-Botones-Container">
-    {(seletCategory != '') && <div className=" userInfo-name boton-add" onClick={()=>resteOrder()}><p>Clear All</p></div>}
+    {(seletCategory != '') && <div className=" userInfo-name  boton-clear" onClick={()=>resteOrder()}><p>Clear All</p></div>}
   </section>
 </section>
 )}
