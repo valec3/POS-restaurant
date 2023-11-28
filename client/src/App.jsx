@@ -17,6 +17,7 @@ import DrinksContainer from './components/Foods/Drinks/DrinksContainer'
 import DessertsContainer from './components/Foods/Desserts/DessertsContainer'
 import Settings from './components/Settings'
 import Support from './components/Support/Support'
+import Messages from './components/Messages/Messages'
 
 function App() {
     const { auth }= useAuth()
@@ -32,7 +33,7 @@ function App() {
                         <Route path="/dashboard/settings" element={<Settings/>} />
                         <Route path="/dashboard/profile" element={<Profile/>} />
                         <Route path="/dashboard/notifications" element={<h2>Notifications dashboard</h2>} />
-                        <Route path="/dashboard/messages" element={<h2>Messages dashboard</h2>} />
+                        <Route path="/dashboard/messages" element={<Messages/>} />
                         <Route path="/dashboard/employees" element={<h2>Employees dashboard</h2>} />
                         <Route path="/dashboard/food-drinks" element={<FoodsContainer/>}>
                             <Route index={true} element={<CategoriesFoods/>} />
