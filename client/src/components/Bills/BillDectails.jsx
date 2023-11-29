@@ -1,10 +1,13 @@
 
+import { useState } from "react";
 import useBill from "../../hooks/useBill";
+import AddItemsView from "./addItems";
 
 const BillDectail = ({OrDectail,order}) =>{
   const bills = useBill();
-  const { allOrders ,completedOrder} = bills;
-    
+  const { completedOrder ,allItems , setAllItems} = bills;
+  const [isVisible, setIsVisible] = useState(false)
+  let totalPrice = 0;
  
   
   const payBill =()=>{
@@ -15,8 +18,9 @@ const BillDectail = ({OrDectail,order}) =>{
 <>
 <section  className={`billDetails ${!OrDectail &&'moveOut'}`}>
                 <section className="billContainer-header">
+                <AddItemsView isVisible={isVisible} setIsVisible={setIsVisible} order={order}/>
                 <div className="billContainer-filter">
-                    <svg className="billContainer-svg" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#1d1b1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                <svg className="billContainer-svg" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#1d1b1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 <p className="userInfo-subTitle lg">Payment history</p>
                 <svg className="billContainer-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" fill="#808080"></path> </g></svg>
                 </div>
@@ -46,40 +50,34 @@ const BillDectail = ({OrDectail,order}) =>{
                 <p className="userInfo-name ">{order.local ? <p className="userInfo-name textDectail">--</p>:order.customers}</p>
                 <p className="userInfo-name ">{order.asociate}</p>
                 </div>
-                <p className="userInfo-name ">Ordern Info</p>
+                {/* boton para agregar iten ala orden */}
+                {(order.status && (order.status != 'Ereased') )&& <div onClick={()=>(setIsVisible(true) 
+                )} className=" userInfo-name boton-add">ADD  </div>}
                 <div className="bill-list mainlist">
                 <div className="bill-list">
                 <p className="userInfo-name md">Items</p>
                 <p className="userInfo-name md">Price</p>
                 </div>
-                <div className="bill-list">
-                    <div className="bill-list listdectail">
-                    <img className="bill-img"  src="https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472:1-4-product-tile-desktop" alt=""/>
-                    <p className="userInfo-name md">1xHamburgesa</p>
-                    </div>
+                {/* donde iran donde los items agregados */}
+                <div className="items-containers" >
+                 
+                  {
+                    // console.log('order----',order.dectail)
                     
-                    <p className="userInfo-name md">$14.34</p>
+                    order?.dectail?.map((items , index)=>{
+                      totalPrice += items.price;
+                      return(
+                      <DetailItem key={index} items={items}/>
+                    )})
+                  }
+                 
+
                 </div>
-                <div className="bill-list">
-                    <div className="bill-list listdectail">
-                    <img className="bill-img"  src="https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472:1-4-product-tile-desktop" alt=""/>
-                    <p className="userInfo-name md">1xHamburgesa</p>
-                    </div>
-                    
-                    <p className="userInfo-name md">$14.34</p>
-                </div>
-                <div className="bill-list">
-                    <div className="bill-list listdectail">
-                    <img className="bill-img"  src="https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472:1-4-product-tile-desktop" alt=""/>
-                    <p className="userInfo-name md">1xHamburgesa</p>
-                    </div>
-                    
-                    <p className="userInfo-name md">$14.34</p>
-                </div>
+             
                 </div>
                 <div className="bill-list mainlist row">
                 <p className="userInfo-name ">Total</p>
-                <p className="userInfo-name ">$48</p>
+                <p className="userInfo-name ">${totalPrice}.00</p>
                 </div>
 
             </section>
@@ -95,5 +93,29 @@ const BillDectail = ({OrDectail,order}) =>{
             </section>
 </>
 )}
+
+const DetailItem = ({items}) =>{
+
+  return (
+<>
+<div className="bill-list">
+                    <div className="bill-list listdectail">
+                    {/* <img className="bill-img"  src="https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472:1-4-product-tile-desktop" alt=""/> */}
+                    
+                      <div className="items-details">
+                        
+                      <p className="userInfo-name md">1</p>
+                      <p className="userInfo-name md">x</p>
+                      <p className="userInfo-name item-name md ">{items.name}</p>
+                      </div>
+                    </div>
+                    
+                    <p className="userInfo-name md">${items.price}.00</p>
+                </div>
+                
+</>
+)}
+
+ 
 
 export default BillDectail
