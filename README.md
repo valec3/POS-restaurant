@@ -1,4 +1,5 @@
 # POS-restaurant
+Sistema de punto de venta para restaurante
 ## Licencia
 Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.txt](LICENSE.txt) para detalles
 ## Tecnologías
@@ -6,6 +7,10 @@ Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.txt](LICEN
 - React Router
 - TailwindCss
 - SASS
-- Firebase
+
 
 ## Descripción
+
+Este proyecto es un sistema de punto de venta para un restaurante, el cual cuenta con las siguientes funcionalidades:
+
+- Registro de usuarios
